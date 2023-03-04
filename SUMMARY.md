@@ -31,3 +31,6 @@
 * [Hardware Resources](ctfs/hardware-resources.md)
 * [Cloud](ctfs/cloud.md)
 * [Penetration Testing](ctfs/penetration-testing.md)
+
+## Miscellaneous
+- [Teach Yourself Infosec](miscellaneous/teach-yourself-infosec.md)
