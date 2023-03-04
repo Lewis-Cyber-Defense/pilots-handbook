@@ -3,3 +3,11 @@
 
 # VS Code
 .vscode
+
+# Node.js stuff
+node_modules
+package-lock.json
+package.json
+
+# GitBook stuff
+_book

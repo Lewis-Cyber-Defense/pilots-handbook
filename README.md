@@ -10,3 +10,24 @@ This gitbook is intended to serve as a playbook for the major competitions that 
 Hopefully, we actually make this into something.
 
 **These notes are incomplete, feel free to contribute at anytime.**
+
+## Locally Hosting It
+### Obsidian (or any other Markdown editor)
+Since everything is in Markdown, you should be able to use any Markdown-based editor. Here's a list of the ones I know will probably work
+
+- [Obsidian.md](https://obsidian.md/)
+- [Trillium](https://github.com/zadam/trilium)
+- [Joplin](https://joplinapp.org/)
+
+Just clone the repository and open it in the app of your choice. For extra credit, create a fork, sync it with this main repo as an upstream, and now you can maintain your own notes and patch these ones with your own!
+
+### Honkit
+If you want to locally host this as a website, use [Honkit](https://github.com/honkit/honkit).
+
+**Prerequisites:** Node.js, npm, [honkit](https://github.com/honkit/honkit)
+```
+npm install honkit --save-dev
+honkit serve
+```
+
+Should be on `https://localhost:4000` by default.

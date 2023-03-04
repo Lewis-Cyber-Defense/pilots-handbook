@@ -34,3 +34,4 @@
 
 ## Miscellaneous
 - [Teach Yourself Infosec](miscellaneous/teach-yourself-infosec.md)
+- [Notetaking](miscellaneous/notetaking-101.md)
