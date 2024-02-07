@@ -24,6 +24,10 @@ netstat -tupan
 - `-a`: Show both listening and non-listening (for TCP this means established) sockets.
 - `-n`: Show numerical addresses instead of resolving hosts.
 - `-o`: Show the owning process ID associated with each connection.
+## Find listening PIDs
+```bash
+ss -nlp | grep -E 'LISTEN.*([0-9]+\.){3}[0-9]+:[0-9]+' | grep -e 'pid=[0-9]*'
+```
 ## Scheduled Tasks
 ```bash
 crontab -l
