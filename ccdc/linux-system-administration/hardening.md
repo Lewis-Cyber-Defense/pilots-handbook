@@ -83,3 +83,9 @@ ldd [binary name]
 ```bash
 cat /var/www/config.php
 ```
+# Scanning
+```bash
+sudo nmap 10.10.11.x -g 53 -T5 -Pn --disable-arp-ping -vv -p- # Find open ports
+
+sudo nmap 10.10.11.x -g 53 -T5 -Pn --disable-arp-ping -vv -A -p <ports> # Enumerate those ports
+```
