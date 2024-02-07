@@ -49,7 +49,7 @@
 ## Networking
 ```shell
 	nc <ip> <port> - connect to ip address on given port
-	nc -l <port> - start a listener on a given port
+	nc -lvnp <port> - start a listener on a given port
 	ping <ip> - check if a host is up using ICMP
 	curl <url> - access websites from terminal
 	wget <url> - download files
