@@ -1,6 +1,6 @@
 # Table of contents
 
-* [Introduction](README.md)
+* [Introduction](pilots-handbook/README.md)
 
 ## 🔫 CCDC
 
