@@ -1,14 +1,22 @@
 # Table of contents
 
-* [Introduction](pilots-handbook/README.md)
+* [Introduction](README.md)
+
+## Defensive Security
+
+* [🐧 Linux System Administration](defensive-security/linux-system-administration/README.md)
+  * [OS Info](defensive-security/linux-system-administration/os-info.md)
+  * [Services](defensive-security/linux-system-administration/services.md)
+  * [Hardening](defensive-security/linux-system-administration/hardening.md)
+  * [Logging](defensive-security/linux-system-administration/logging.md)
+  * [Last resort checklist](defensive-security/linux-system-administration/security-checklist.md)
+  * [Hardening2](defensive-security/linux-system-administration/hardening2.md)
+* [🪟 Windows System Administration](defensive-security/windows-system-administration/README.md)
+  * [Hardening](defensive-security/windows-system-administration/hardening.md)
 
 ## 🔫 CCDC
 
 * [Event Info](ccdc/event-info.md)
-* [🐧 Linux System Administration](ccdc/linux-system-administration/README.md)
-  * [Hardening](ccdc/linux-system-administration/hardening.md)
-* [🪟 Windows System Administration](ccdc/windows-system-administration/README.md)
-  * [Hardening](ccdc/windows-system-administration/hardening.md)
 * [💉 Injects](ccdc/injects.md)
 
 ## 🔋 DoE Cyberforce
