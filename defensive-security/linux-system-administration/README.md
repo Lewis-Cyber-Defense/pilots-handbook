@@ -1,0 +1,28 @@
+# 🐧 Linux System Administration
+
+- [OS Info](os-info.md)
+	- Checking OS information
+	- Passwords
+	- Users
+	- Groups
+	- Sudo
+	- Updates and installs
+	- Binaries
+	- Crontab and automated tasks
+	- Misc.
+		- .bashrc
+		- /tmp
+- [Services](services.md)
+	- Enable/disable Services
+	- Ports based on service
+	- Service files
+- [Hardening](hardening.md)
+	- Ssh
+	- IP Tables
+	- Fail2Ban
+- [Logging](logging.md)
+	- Application Logs
+	- Auditd
+- [Security Checklist](security-checklist.md)
+	- This is the "help I didn't read anything that was sent so now I'm going in completely blind and I don't know what to do" guide
+- [Hardening2](hardening2.md)
