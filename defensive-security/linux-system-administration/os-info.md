@@ -53,6 +53,8 @@ These users are determined in the `/etc/sudoers` file and all files in the `/etc
 
 These files allow users or groups to execute a command, and can even prevent password requirements for certain commands.
 
+Permissions can also be seen with `sudo -l`
+
 # Updates and Installs
 Updates can be done easily based on the OS
 
@@ -135,3 +137,13 @@ Files are deleted from here on a reboot.
 The `env` command displays environment variables.
 
 Information might be leaked here, especially in docker containers.
+
+## SUID/SGID
+SUID and SGID run an executable with the permissions of the user owner and group owner respectively.
+
+These files can be found with the following commands:
+```bash
+find / -type f -perm -4000 ! -path "/proc/*" -exec ls {} 2</dev/null \; # SUID
+
+find / -type f -perm -2000 ! -path "/proc/*" -exec ls {} 2</dev/null \; # SGID
+```

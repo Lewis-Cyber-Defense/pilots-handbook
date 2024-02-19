@@ -2,13 +2,14 @@
 
 * [Introduction](README.md)
 
-## Defensive Security
+## 🛡️ Defensive Security
 
 * [🐧 Linux System Administration](defensive-security/linux-system-administration/README.md)
   * [OS Info](defensive-security/linux-system-administration/os-info.md)
   * [Services](defensive-security/linux-system-administration/services.md)
   * [Hardening](defensive-security/linux-system-administration/hardening.md)
   * [Logging](defensive-security/linux-system-administration/logging.md)
+  * [Incident Response](defensive-security/linux-system-administration/incident-response.md)
   * [Last resort checklist](defensive-security/linux-system-administration/security-checklist.md)
   * [Hardening2](defensive-security/linux-system-administration/hardening2.md)
 * [🪟 Windows System Administration](defensive-security/windows-system-administration/README.md)
