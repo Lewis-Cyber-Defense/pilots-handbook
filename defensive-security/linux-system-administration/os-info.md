@@ -40,6 +40,7 @@ Note that the password should either be `x` or a hash, not an actual password.
 
 Users can be deleted by simply removing the line in `/etc/passwd` or by running `userdel -r <user>`
 
+**Only login users should have a shell**, users without login will have `<path>/nologin` as the shell. It wouldn't be dumb to check the nologin binary (or attempt user login) to verify that it works as intended.
 # Groups
 Groups are located in `/etc/group`, with the following format:
 `groupname:password:GID:users`
@@ -147,3 +148,5 @@ find / -type f -perm -4000 ! -path "/proc/*" -exec ls {} 2</dev/null \; # SUID
 
 find / -type f -perm -2000 ! -path "/proc/*" -exec ls {} 2</dev/null \; # SGID
 ```
+
+These binaries can be checked using [GTFOBins](https://gtfobins.github.io/#+suid) (make sure you type the binary file before the `+suid`)

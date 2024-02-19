@@ -61,8 +61,9 @@ go hAm 6
 | SMB | TCP/UDP: 445 |
 | Kerberos | TCP/UDP: 88 for authentication<br>TCP/UDP: 464 for password change |
 | RPC | TCP/UDP: 135 |
-| NetBIOS | TCP/UDP: 137,138 |
+| NetBIOS | TCP/UDP: 137 and 138 |
 | LDAP | TCP/UDP: 389<br>TCP/UDP: 636 for SSL |
+| DHCP | UDP: 67 for server<br>UDP: 68 for client |
 
 # Service files
 Service files should be located in `/lib/systemd/system/`
