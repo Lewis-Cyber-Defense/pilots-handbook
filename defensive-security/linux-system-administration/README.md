@@ -1,6 +1,6 @@
 # 🐧 Linux System Administration
 
-- [OS Info](os-info.md)
+- [OS Info](defensive-security/linux-system-administration/os-info.md)
 	- Checking OS information
 	- Passwords
 	- Users
@@ -14,22 +14,22 @@
 		- /tmp
 		- env
 		- SUID/SGID
-- [Services](services.md)
+- [Services](defensive-security/linux-system-administration/services.md)
 	- Enable/disable services
 	- Common services
 	- Ports based on service
 	- Service files
-- [Hardening](hardening.md)
+- [Hardening](defensive-security/linux-system-administration/hardening.md)
 	- Ssh
 	- IPTables
 	- Fail2Ban
-- [Logging](logging.md)
+- [Logging](defensive-security/linux-system-administration/logging.md)
 	- Application logs
 	- Auditd
-- [Incident Response](incident-response.md)
+- [Incident Response](defensive-security/linux-system-administration/incident-response.md)
 	- Network connections
 	- Running processes
 	- Log analysis
-- [Security Checklist](security-checklist.md)
+- [Security Checklist](defensive-security/linux-system-administration/security-checklist.md)
 	- This is the "help I didn't read anything that was sent so now I'm going in completely blind and I don't know what to do" guide
 - [Hardening2](hardening2.md)
