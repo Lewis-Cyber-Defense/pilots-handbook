@@ -3,6 +3,8 @@ Services can be enabled or disabled with `sudo systemctl enable <service> --now`
 
 Note that services can still be ran after being disabled. To truly disable them, run `systemctl mask <service>` afterwards.
 
+To quickly restart a service, run `sudo systemctl restart <service>`
+
 Also note that many service names end with `d`, e.g. `sshd`, `auditd`, `splunkd`, `httpd`, etc.
 
 # Common Services
@@ -33,7 +35,16 @@ A guide to OpenSSH can be found [here](https://ubuntu.com/server/docs/service-op
 Go ham
 
 ## Mail
-go ham 2
+**SMTP** sends messages from a mail client, **POP3** transfers mail to a device (one time use, deletes from server), and **IMAP** stores mail remotely (used for mail servers across multiple devices). If that's confusing, think of it this way:
+- SMTP moves mail from one server to another
+- POP3 lets you download the mail, removing it from the server
+- IMAP lets you read the mail from the server itself
+
+SMTP is used with either IMAP or POP3 to send and receive email.
+
+[Dovecot](https://www.dovecot.org/) is frequently used as a Mail Delivery Agent (MTA), to run POP3 and IMAP.
+
+[Postfix](http://www.postfix.org/) is frequently used as a Mail Transfer Agent (MTA), to run SMTP.
 
 ## Telnet
 go Ham3

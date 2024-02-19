@@ -23,6 +23,8 @@
 	- General hardening
 	- Service Hardening
 		- SSH
+		- Apache2
+		- MySQL
 	- IPTables/Firewall
 	- Fail2Ban IP Lockouts
 - [Logging](logging.md)
