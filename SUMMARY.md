@@ -19,6 +19,7 @@
 
 * [Event Info](ccdc/event-info.md)
 * [💉 Injects](ccdc/injects.md)
+* [Palo Alto](ccdc/palo-alto.md)
 
 ## 🔋 DoE Cyberforce
 
