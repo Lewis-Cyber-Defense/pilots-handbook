@@ -70,7 +70,6 @@ Try to change passwords in the databases based on the services running. Figuring
 
 # IPTables/Firewall
 
-a
 # Fail2Ban IP Lockouts
 
 

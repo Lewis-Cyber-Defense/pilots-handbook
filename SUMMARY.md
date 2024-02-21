@@ -14,6 +14,7 @@
   * [Hardening2](defensive-security/linux-system-administration/hardening2.md)
 * [🪟 Windows System Administration](defensive-security/windows-system-administration/README.md)
   * [Hardening](defensive-security/windows-system-administration/hardening.md)
+* [Defensive Tool List](defensive-security/defensive-tool-list/README.md)
 
 ## 🔫 CCDC
 
