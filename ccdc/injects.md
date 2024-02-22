@@ -1,5 +1,5 @@
 ---
-title: injects
+title: Injects
 description: 
 published: true
 date: 2024-02-22T15:48:31.337Z
@@ -8,7 +8,7 @@ editor: markdown
 dateCreated: 2024-02-22T06:12:29.862Z
 ---
 
-# 💉 Injects
+# Injects
 
 ## What are Injects?
 Injects are "business tasks" that you'll have to complete throughout the day that can either be strictly business-related (e.g. Business Memo to CISO that everything is fine, Write an Acceptable Use Policy) or technical (e.g. Install X, Y, and Z and show proof). Functionally, they serve two purposes:

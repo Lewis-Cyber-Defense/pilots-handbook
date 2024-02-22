@@ -1,5 +1,5 @@
 ---
-title: c-suite-panel
+title: C-Suite Panel
 description: 
 published: true
 date: 2024-02-22T15:49:02.597Z

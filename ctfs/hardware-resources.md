@@ -1,5 +1,5 @@
 ---
-title: hardware-resources
+title: Hardware Resources
 description: 
 published: true
 date: 2024-02-22T15:48:49.770Z

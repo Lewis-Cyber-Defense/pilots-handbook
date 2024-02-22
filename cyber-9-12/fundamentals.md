@@ -1,5 +1,5 @@
 ---
-title: fundamentals
+title: Fundamentals
 description: 
 published: true
 date: 2024-02-22T15:48:59.905Z

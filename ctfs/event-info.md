@@ -1,5 +1,5 @@
 ---
-title: event-info
+title: Event Info
 description: 
 published: true
 date: 2024-02-22T15:48:44.448Z

@@ -1,5 +1,5 @@
 ---
-title: hardening
+title: General Hardening
 description: 
 published: true
 date: 2024-02-22T15:49:18.443Z

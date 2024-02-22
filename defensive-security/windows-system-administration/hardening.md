@@ -1,5 +1,5 @@
 ---
-title: hardening
+title: Hardening
 description: 
 published: true
 date: 2024-02-22T15:49:38.116Z

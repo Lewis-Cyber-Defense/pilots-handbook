@@ -1,5 +1,5 @@
 ---
-title: linux-command-cheatsheet
+title: Linux Fundamentals  
 description: 
 published: true
 date: 2024-02-22T15:49:25.805Z

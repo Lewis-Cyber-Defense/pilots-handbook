@@ -1,5 +1,5 @@
 ---
-title: cryptography-resources
+title: Cryptography Resources
 description: 
 published: true
 date: 2024-02-22T15:48:41.877Z

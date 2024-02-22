@@ -1,5 +1,5 @@
 ---
-title: binex-rev-resources
+title: Binex/Rev Resources
 description: 
 published: true
 date: 2024-02-22T15:48:36.996Z

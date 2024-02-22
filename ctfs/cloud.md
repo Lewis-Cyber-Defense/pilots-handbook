@@ -1,5 +1,5 @@
 ---
-title: cloud
+title: Cloud
 description: 
 published: true
 date: 2024-02-22T15:48:39.346Z
