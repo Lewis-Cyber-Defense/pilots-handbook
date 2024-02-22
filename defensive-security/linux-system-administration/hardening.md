@@ -2,7 +2,7 @@
 title: General Hardening
 description: 
 published: true
-date: 2024-02-22T15:49:18.443Z
+date: 2024-02-22T23:12:39.597Z
 tags: 
 editor: markdown
 dateCreated: 2024-02-22T06:11:58.378Z
@@ -12,9 +12,9 @@ dateCreated: 2024-02-22T06:11:58.378Z
 There's a few mindsets to use when hardening. Easiest is the *prevent all unauthorized access* mindset, which is great to quickly prevent initial access and to limit attacker capabilities. That comes down to just a few things:
 1. Change credentials and lock/remove accounts ([guide](os-info.md))
 2. Disable services ([guide](services.md))
-3. Ensure nothing is reaching out that shouldn't be (more info [here](incident-response))
+3. Ensure nothing is reaching out that shouldn't be (more info [here](incident-response.md))
 	1. Check crontabs for network connections
-	2. Check important system files for backdoors ([guide](os-info))
+	2. Check important system files for backdoors ([guide](os-info.md))
 4. Enable firewall (explained below)
 5. Secure services (explained below)
 
