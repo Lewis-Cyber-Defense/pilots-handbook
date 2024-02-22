@@ -10,6 +10,7 @@ dateCreated: 2024-02-22T06:12:36.861Z
 
 # Binex/Rev Resources
 > Note that a lot of these resources were just copied from a single discord message I saw one day, so not all of these have been audited for quality
+{.is-info}
 
 ## Binary Exploitation
 - https://ir0nstone.gitbook.io/notes/

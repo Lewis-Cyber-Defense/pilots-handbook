@@ -10,6 +10,7 @@ dateCreated: 2024-02-22T06:13:16.850Z
 
 # Notetaking 101
 > Via a message in the TryHackMe discord
+{.is-info}
 
 **How to Take Notes Like a 1337 Hecker**
 > With all of the concepts you learn, taking notes allows you to relearn and reference things faster, without making you remember everything all of the time
@@ -19,6 +20,7 @@ dateCreated: 2024-02-22T06:13:16.850Z
 - The first step to effective note taking is to identify what you need and why you need it,
 - From the LYT PKM Kit,
 > You don't need any of this. Just make notes and start writing. Worry about structure later.
+{.is-info}
 
 - Moving on from why and how to begin effectively taking notes lets talk about resources to get there.
 - Note-Taking Platforms by Category (other than just an actual notebook)

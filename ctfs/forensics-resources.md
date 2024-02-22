@@ -10,6 +10,7 @@ dateCreated: 2024-02-22T06:12:50.530Z
 
 # Forensics Resources
 > You get good at forensics by having good fundamentals, so a lot of specific resources are just learning specific tools.
+{.is-info}
 
 ## Videos
 - [13Cubed](https://www.youtube.com/@13Cubed) the 🐐 of Volatility and general forensics. I'll be honest, I feel like I learn something new from every single video.

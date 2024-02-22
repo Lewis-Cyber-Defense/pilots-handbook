@@ -11,12 +11,14 @@ dateCreated: 2024-02-22T06:13:20.040Z
 # Teach Yourself Infosec (20XX Edition)
 > A modified resource dump: By [Ryan](https://an00brektn.github.io)
 > Inspired by y5's [teachyourselfinfosec.com](https://teachyourselfinfosec.com)
+{.is-info}
 
 Disclaimer: **I still have a long way to go, and I do not know everything, and I never will know everything,** but if you want to get really good at things quickly, there are resources out there for you. This document will be **long**, but it's all good stuff.
 Note that I am definitely biased with what resources I have, and I wish this list was a bit more balanced. If you have any resources you would like to see, please let me know, definitely some "TODOs" lying around in this PDF. You could also google for "awesome security resources list" on GitHub and probably find *even bigger* lists, but this is mostly resources that have worked for me or stuff I know works for others. 
 
 ## 5 Pillars of Infosec
 > Stolen from [DFIRmadness](https://github.com/DFIRmadness/5pillars/blob/master/5-Pillars.md)
+{.is-info}
 
 ### Motivation
 Quote DFIRmadness:
@@ -126,6 +128,8 @@ Ok, so there are a LOT of different areas of infosec, so to keep things simple, 
 
 ### Mobile/Wireless Security
 > There are certainly more resources out there, I just need to find them
+{.is-warning}
+
 - I know Wireless Security (the class) teaches some mobile and wireless stuff
 - [ippsec](https://www.youtube.com/watch?v=xp8ufidc514) has a video on how to set up Android emulation so you can dynamically analyze an Android app
 - [HackTheBox's blog](https://www.hackthebox.com/blog/intro-to-mobile-pentesting) has an article explaining some basics
@@ -134,6 +138,7 @@ Ok, so there are a LOT of different areas of infosec, so to keep things simple, 
 - **TODO:** More mobile stuff
 ### Reverse Engineering and Binary Exploitation
 > You can tell where my biases are
+{.is-info}
 
 - [Malware Unicorn](https://malwareunicorn.org/#/workshops) has a few free workshops to go over some basics and advanced techniques related to reverse engineering and malware analysis
 - [ost2.fyi](https://p.ost2.fyi/courses) also has a good amount of assembly/debugging courses, but I haven't done any of them (I've heard good things)

@@ -19,6 +19,7 @@ dateCreated: 2024-02-22T06:13:00.229Z
 
 ## Books
 > As a Lewis student, you have access to [O'Rielly Library](https://learning.oreilly.com/home/), which I **highly recommend** that you take advantage of.
+{.is-success}
 
 - [Bug Bounty Bootcamp - Vickie Li](https://learning.oreilly.com/library/view/bug-bounty-bootcamp/9781098129088/) isn't entirely about web hacking, as bug bounty is its own small world, but still has good information
 - [Hacking APIs - Corey J. Ball](https://learning.oreilly.com/library/view/hacking-apis/9781098130244/) is specifically focused on testing APIs, which are generally forgotten about since users aren't meant to interact with them. 

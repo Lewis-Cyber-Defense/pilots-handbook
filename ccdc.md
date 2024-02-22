@@ -16,6 +16,7 @@ TODO
 
 ## Useful Reads
 > **PLEASE READ THESE BEFORE GOING INTO AN EVENT**
+{.is-warning}
 
 - [How to Win CCDC](https://docs.google.com/presentation/d/1pPXLg3KqwSMLRCNRfows5QnVI2mLjSmll5vN2WHMFJg/edit#slide=id.p) and the half-finished [wiki](https://howtowinccdc.com/wiki/)
 - [So You Won a Regional and You're Headed to National CCDC - Cobalt Strike](https://www.cobaltstrike.com/blog/so-you-won-a-regional-and-youre-headed-to-national-ccdc/)

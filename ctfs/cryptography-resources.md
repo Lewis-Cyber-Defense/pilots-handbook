@@ -10,6 +10,7 @@ dateCreated: 2024-02-22T06:12:43.819Z
 
 # Cryptography Resources
 > This section is mainly for the people looking to dive into cryptography and the underlying math, not really for basic concepts like "What is GPG?" or "How do I use OpenSSL?". These questions are valid, but you might just want to hit up Google for that.
+{.is-info}
 
 ## Books
 - [Serious Cryptography](https://www.oreilly.com/library/view/serious-cryptography/9781492067511/xhtml/cover.xhtml) is a very good book to introduce fundamental concepts
