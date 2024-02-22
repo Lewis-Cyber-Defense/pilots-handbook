@@ -1,5 +1,5 @@
 ---
-title: notetaking-101
+title: Notetaking 101
 description: 
 published: true
 date: 2024-02-22T15:49:07.672Z

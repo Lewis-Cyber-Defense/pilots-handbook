@@ -1,5 +1,5 @@
 ---
-title: teach-yourself-infosec
+title: Teach Yourself Infosec
 description: 
 published: true
 date: 2024-02-22T19:08:35.745Z

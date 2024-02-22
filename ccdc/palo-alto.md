@@ -1,5 +1,5 @@
 ---
-title: palo-alto
+title: Palo Alto Firewall
 description: 
 published: true
 date: 2024-02-22T15:48:34.221Z

@@ -1,5 +1,5 @@
 ---
-title: os-info
+title: OS Info
 description: 
 published: true
 date: 2024-02-22T15:49:30.759Z

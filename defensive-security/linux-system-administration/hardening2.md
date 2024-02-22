@@ -1,5 +1,5 @@
 ---
-title: hardening2
+title: Hardening 2 Electric Boogaloo
 description: 
 published: true
 date: 2024-02-22T16:22:41.902Z

@@ -1,5 +1,5 @@
 ---
-title: incident-response
+title: Incident Response
 description: 
 published: true
 date: 2024-02-22T15:49:23.394Z

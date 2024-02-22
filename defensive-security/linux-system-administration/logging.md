@@ -1,5 +1,5 @@
 ---
-title: logging
+title: Logging
 description: 
 published: true
 date: 2024-02-22T15:49:28.106Z
