@@ -1,8 +1,8 @@
 ---
-title: Event Info
+title: CTFs
 description: 
 published: true
-date: 2024-02-22T15:48:44.448Z
+date: 2024-02-22T19:48:21.178Z
 tags: 
 editor: markdown
 dateCreated: 2024-02-22T06:12:47.043Z
