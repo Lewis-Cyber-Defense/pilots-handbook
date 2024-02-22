@@ -2,7 +2,7 @@
 title: Defensive Tool List
 description: 
 published: true
-date: 2024-02-22T19:44:25.369Z
+date: 2024-02-22T22:43:28.286Z
 tags: 
 editor: markdown
 dateCreated: 2024-02-22T06:11:55.135Z
@@ -23,6 +23,8 @@ dateCreated: 2024-02-22T06:11:55.135Z
 - [Splunk](https://www.splunk.com/)
 - [Netdata](https://github.com/netdata/netdata)
 - [ELK](https://www.elastic.co/elastic-stack)
+## Threat Hunting/EDR
+- [Velociraptor](https://github.com/Velocidex/velociraptor)
 ## Firewalls
 - [Palo Alto](https://www.paloaltonetworks.com/)
 # Linux
@@ -77,12 +79,12 @@ dateCreated: 2024-02-22T06:11:55.135Z
 ## Antivirus
 - Windows Defender
 - [MalwareBytes](https://www.malwarebytes.com/)
-## IDS/IPS
-- (insert tools)
 ## Threat Hunting/EDR
 - [DeepBlueCLI](https://github.com/sans-blue-team/DeepBlueCLI)
 - [PersistenceSniper](https://github.com/last-byte/PersistenceSniper)
 - [Chainsaw](https://github.com/WithSecureLabs/chainsaw)
+## IDS/IPS
+- (insert tools)
 ## Scanners
 - [WinPEAS](https://github.com/carlospolop/PEASS-ng/tree/master/winPEAS)
 ## Other
