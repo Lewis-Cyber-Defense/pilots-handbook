@@ -1,3 +1,13 @@
+---
+title: notetaking-101
+description: 
+published: true
+date: 2024-02-22T15:49:07.672Z
+tags: 
+editor: markdown
+dateCreated: 2024-02-22T06:13:16.850Z
+---
+
 # Notetaking 101
 > Via a message in the TryHackMe discord
 

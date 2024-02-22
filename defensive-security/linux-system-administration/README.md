@@ -1,3 +1,13 @@
+---
+title: README
+description: 
+published: true
+date: 2024-02-22T16:22:39.329Z
+tags: 
+editor: markdown
+dateCreated: 2024-02-22T06:13:25.868Z
+---
+
 # 🐧 Linux System Administration
 
 - [OS Info](os-info.md)

@@ -1,3 +1,13 @@
+---
+title: os-info
+description: 
+published: true
+date: 2024-02-22T15:49:30.759Z
+tags: 
+editor: markdown
+dateCreated: 2024-02-22T06:13:44.259Z
+---
+
 # Checking OS Version
 There are two ways to check OS version:
 - `lsb_release -a`

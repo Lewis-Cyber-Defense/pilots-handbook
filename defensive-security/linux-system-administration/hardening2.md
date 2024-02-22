@@ -1,3 +1,13 @@
+---
+title: hardening2
+description: 
+published: true
+date: 2024-02-22T16:22:41.902Z
+tags: 
+editor: markdown
+dateCreated: 2024-02-22T06:13:31.452Z
+---
+
 # Hardening
 
 ## Fail2Ban 

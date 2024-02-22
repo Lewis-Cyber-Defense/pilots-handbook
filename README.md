@@ -1,5 +1,11 @@
 ---
+title: README
 description: A playbook, because thinking is hard, and reinventing the wheel is dumb.
+published: true
+date: 2024-02-22T15:48:23.431Z
+tags: 
+editor: markdown
+dateCreated: 2024-02-22T06:12:20.993Z
 ---
 
 # Introduction

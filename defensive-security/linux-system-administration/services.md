@@ -1,3 +1,13 @@
+---
+title: services
+description: 
+published: true
+date: 2024-02-22T15:49:33.376Z
+tags: 
+editor: markdown
+dateCreated: 2024-02-22T06:13:47.556Z
+---
+
 # Enable/Disable Services
 Services can be enabled or disabled with `sudo systemctl enable <service> --now` and `sudo systemctl disable <service> --now` respectively.
 

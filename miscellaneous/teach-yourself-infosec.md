@@ -1,3 +1,13 @@
+---
+title: teach-yourself-infosec
+description: 
+published: true
+date: 2024-02-22T15:49:10.537Z
+tags: 
+editor: markdown
+dateCreated: 2024-02-22T06:13:20.040Z
+---
+
 # Teach Yourself Infosec (20XX Edition)
 > A modified resource dump: By [Ryan](https://an00brektn.github.io)
 > Inspired by y5's [teachyourselfinfosec.com](https://teachyourselfinfosec.com)

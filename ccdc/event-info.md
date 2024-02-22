@@ -1,3 +1,13 @@
+---
+title: event-info
+description: 
+published: true
+date: 2024-02-22T15:48:28.742Z
+tags: 
+editor: markdown
+dateCreated: 2024-02-22T06:12:26.491Z
+---
+
 # Event Info
 ## What is CCDC?
 TODO

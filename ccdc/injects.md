@@ -1,3 +1,13 @@
+---
+title: injects
+description: 
+published: true
+date: 2024-02-22T15:48:31.337Z
+tags: 
+editor: markdown
+dateCreated: 2024-02-22T06:12:29.862Z
+---
+
 # 💉 Injects
 
 ## What are Injects?

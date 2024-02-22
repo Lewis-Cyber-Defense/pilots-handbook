@@ -1,3 +1,13 @@
+---
+title: event-info
+description: 
+published: true
+date: 2024-02-22T15:48:44.448Z
+tags: 
+editor: markdown
+dateCreated: 2024-02-22T06:12:47.043Z
+---
+
 # Event Info
 
 ## What are CTFs?

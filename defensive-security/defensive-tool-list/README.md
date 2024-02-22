@@ -1,3 +1,13 @@
+---
+title: README
+description: 
+published: true
+date: 2024-02-22T16:22:36.842Z
+tags: 
+editor: markdown
+dateCreated: 2024-02-22T06:11:55.135Z
+---
+
 # General (multi-OS)
 ## Automation
 - [Ansible](https://www.ansible.com/)

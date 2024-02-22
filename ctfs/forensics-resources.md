@@ -1,3 +1,13 @@
+---
+title: forensics-resources
+description: 
+published: true
+date: 2024-02-22T15:48:47.273Z
+tags: 
+editor: markdown
+dateCreated: 2024-02-22T06:12:50.530Z
+---
+
 # Forensics Resources
 > You get good at forensics by having good fundamentals, so a lot of specific resources are just learning specific tools.
 

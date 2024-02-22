@@ -1,3 +1,13 @@
+---
+title: hardening
+description: 
+published: true
+date: 2024-02-22T15:49:18.443Z
+tags: 
+editor: markdown
+dateCreated: 2024-02-22T06:11:58.378Z
+---
+
 # General Hardening
 There's a few mindsets to use when hardening. Easiest is the *prevent all unauthorized access* mindset, which is great to quickly prevent initial access and to limit attacker capabilities. That comes down to just a few things:
 1. Change credentials and lock/remove accounts ([guide](os-info.md))

@@ -1,3 +1,13 @@
+---
+title: event-info
+description: 
+published: true
+date: 2024-02-22T15:49:05.051Z
+tags: 
+editor: markdown
+dateCreated: 2024-02-22T06:13:13.588Z
+---
+
 # Event Info
 ## What is Cyberforce?
 [Cyberforce](https://cyberforce.energy.gov/) started out as a small event run by Argonne National Laboratory back in ~2016, and has now grown into a full Department of Energy effort with 2022's event bringing in ~150 colleges across the country.
