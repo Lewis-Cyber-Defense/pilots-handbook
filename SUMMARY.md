@@ -12,6 +12,7 @@
   * [Incident Response](defensive-security/linux-system-administration/incident-response.md)
   * [Last resort checklist](defensive-security/linux-system-administration/security-checklist.md)
   * [Hardening2](defensive-security/linux-system-administration/hardening2.md)
+  * [Linux Command Cheat Sheet](defensive-security/linux-system-administration/linux-command-cheatsheet.md)
 * [🪟 Windows System Administration](defensive-security/windows-system-administration/README.md)
   * [Hardening](defensive-security/windows-system-administration/hardening.md)
 * [Defensive Tool List](defensive-security/defensive-tool-list/README.md)
