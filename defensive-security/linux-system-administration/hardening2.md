@@ -50,7 +50,7 @@ rpm -qa # RedHat/CentOS
 ```
 ## Running Services
 ```bash
-ps aux
+ps flax
 netstat -tupan
 ```
 - `-t`: Show TCP ports.

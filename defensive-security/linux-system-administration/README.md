@@ -37,3 +37,4 @@
 - [Security Checklist](security-checklist.md)
 	- This is the "help I didn't read anything that was sent so now I'm going in completely blind and I don't know what to do" guide
 - [Hardening2](hardening2.md)
+- [Linux Command Cheat sheet](linux-command-cheatsheet.md)

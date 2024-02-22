@@ -27,6 +27,10 @@
 - [Louis](https://github.com/sourque/louis)
 - [AIDE](https://github.com/aide/aide)
 - [bluebpf](https://github.com/mttaggart/bluebpf)
+## IDS/IPS
+- [Snort](https://github.com/snort3/snort3)
+- [Suricata](https://github.com/OISF/suricata)
+- [Zeek](https://github.com/zeek/zeek)
 ## Firewalls
 - [IPTables](https://linux.die.net/man/8/iptables)
 ## Traffic Protection
@@ -63,6 +67,8 @@
 ## Antivirus
 - Windows Defender
 - [MalwareBytes](https://www.malwarebytes.com/)
+## IDS/IPS
+- (insert tools)
 ## Threat Hunting/EDR
 - [DeepBlueCLI](https://github.com/sans-blue-team/DeepBlueCLI)
 - [PersistenceSniper](https://github.com/last-byte/PersistenceSniper)
