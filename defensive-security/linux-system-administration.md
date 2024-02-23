@@ -2,7 +2,7 @@
 title: Linux System Administration
 description: 
 published: true
-date: 2024-02-23T07:33:57.343Z
+date: 2024-02-23T14:42:24.832Z
 tags: 
 editor: markdown
 dateCreated: 2024-02-22T06:13:25.868Z
@@ -26,6 +26,8 @@ dateCreated: 2024-02-22T06:13:25.868Z
 		- /tmp
 		- env
 		- SUID/SGID
+		- World-writable files
+		- Filename whitespace detector
 - [Services](linux-system-administration/services.md)
 	- Enable/disable services
 	- Common services
