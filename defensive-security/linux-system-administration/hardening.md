@@ -2,7 +2,7 @@
 title: Hardening
 description: 
 published: true
-date: 2024-02-23T14:45:46.233Z
+date: 2024-02-23T15:44:46.632Z
 tags: 
 editor: markdown
 dateCreated: 2024-02-22T06:11:58.378Z
@@ -21,7 +21,7 @@ There's a few mindsets to use when hardening. Easiest is the *prevent all unauth
 The next mindset is realizing that an attacker **will** get into the system as long as a service is up, so you have to prevent privilege escalation. While this list is shorter, it's also a little more complicated:
 1. Check file and executable permissions, including SUID/SGID ([guide](os-info.md))
 2. Check important system files, like `/etc/passwd`, `/etc/sudoers`, etc, for misconfigurations ([guide](os-info.md))
-3. Check for privilege escalation vectors, like `env`, plaintext passwords, or suspicious files ([guide](os-info.md))
+3. Check for privilege escalation vectors, like `env`, plaintext passwords, or suspicious files. This also includes making important files immutable ([guide](os-info.md))
 4. Backup important files/directories
 
 Note that having multiple eyes and rotation on machines may help find new vulnerabilities, but sticking to a machine may build familiarity.
@@ -75,7 +75,6 @@ UPDATE `ps_employee` SET `passwd` = MD5('<_COOKIE_><password>') WHERE `ps_employ
 Try to change passwords in the databases based on the services running. Figuring out how to do this will require research based on services.
 
 **Note:** phpmyadmin is a great MySQL management software, it can be installed with the `phpmyadmin` package. A setup guide can be found [here](https://help.ubuntu.com/community/phpMyAdmin)
-
 ## SMTP
 
 # IPTables/Firewall
@@ -115,4 +114,14 @@ update-rc.d fail2ban defaults
 service fail2ban start
 ```
 # Backups
-
+## Tar backups
+[Reference](https://help.ubuntu.com/community/BackupYourSystem/TAR)
+### Create backup
+```bash
+tar -cvpzf backup.tar.gz --exclude=/backup.tar.gz <directory>
+```
+### Restore backup
+```bash
+sudo tar -xvpzf backup.tar.gz -C /<directory_path> --numeric-owner
+```
+Backups can be sent either on FTP(S), SFTP, or nc
