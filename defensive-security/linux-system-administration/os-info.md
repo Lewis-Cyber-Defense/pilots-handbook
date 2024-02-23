@@ -2,7 +2,7 @@
 title: OS Info
 description: 
 published: true
-date: 2024-02-22T15:49:30.759Z
+date: 2024-02-23T03:30:39.869Z
 tags: 
 editor: markdown
 dateCreated: 2024-02-22T06:13:44.259Z
@@ -51,6 +51,8 @@ Note that the password should either be `x` or a hash, not an actual password.
 Users can be deleted by simply removing the line in `/etc/passwd` or by running `userdel -r <user>`
 
 **Only login users should have a shell**, users without login will have `<path>/nologin` as the shell. It wouldn't be dumb to check the nologin binary (or attempt user login) to verify that it works as intended.
+
+Note that all users should have a unique ID, and **UID 0 IS RESERVED FOR ROOT** (no other users should have a uid or gid of 0)
 # Groups
 Groups are located in `/etc/group`, with the following format:
 `groupname:password:GID:users`
