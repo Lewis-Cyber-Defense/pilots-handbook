@@ -2,7 +2,7 @@
 title: OS Info
 description: 
 published: true
-date: 2024-02-23T18:28:56.573Z
+date: 2024-02-23T18:29:07.580Z
 tags: 
 editor: markdown
 dateCreated: 2024-02-22T06:13:44.259Z
@@ -82,6 +82,7 @@ Fedora:
 ```shell
 sudo dnf upgrade
 ```
+
 Arch-based systems:
 ```shell
 sudo pacman -Syu
