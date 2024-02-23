@@ -2,7 +2,7 @@
 title: Security Checklist
 description: 
 published: true
-date: 2024-02-23T07:17:20.162Z
+date: 2024-02-23T07:19:18.553Z
 tags: 
 editor: markdown
 dateCreated: 2024-02-23T04:36:27.056Z
@@ -78,7 +78,7 @@ vi /root/.zshrc
 vi /home/<user>/.zshrc
 ```
 ## 6. Check users and groups
-See the [OS info page](os-info#Passwords) for more information (please read the user and password sections before just determining if a user is 'good' or not)
+See the [OS info page](os-info.md#Passwords) for more information (please read the user and password sections before just determining if a user is 'good' or not)
 
 Make sure to verify UIDs and ensure there aren't duplicates also.
 ```bash
@@ -143,7 +143,7 @@ sudo yum update
 sudo dnf upgrade
 ```
 ## 11. Set up auditd logging
-Refer to [the logging guide](logging) for info on looking through the logs
+Refer to [the logging guide](logging.md) for info on looking through the logs
 ### Install
 #### Ubuntu:
 ```bash
