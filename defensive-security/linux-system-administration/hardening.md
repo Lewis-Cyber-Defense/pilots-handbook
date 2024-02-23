@@ -1,8 +1,8 @@
 ---
-title: General Hardening
+title: Hardening
 description: 
 published: true
-date: 2024-02-22T23:12:39.597Z
+date: 2024-02-23T07:28:39.441Z
 tags: 
 editor: markdown
 dateCreated: 2024-02-22T06:11:58.378Z
