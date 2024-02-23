@@ -2,15 +2,14 @@
 title: Security Checklist
 description: 
 published: true
-date: 2024-02-23T06:04:07.819Z
+date: 2024-02-23T07:17:20.162Z
 tags: 
 editor: markdown
 dateCreated: 2024-02-23T04:36:27.056Z
 ---
 
 # Service-focused
-
-
+\[todo\]
 # Not service-focused (machines that don't have to run specific services)
 Note: see [OS info](os-info#Misc) to get command history working on root, but please disable network connections and crontabs first.
 
@@ -169,6 +168,9 @@ vi /etc/audit/audit.rules
 # Make config immutable
 sudo chattr +i /etc/audit/audit.rules
 
-# Restart auditd
+# Enable/restart auditd
+sudo systemctl enable --now auditd
 sudo systemctl restart auditd
 ```
+## 12. Set up IDS/IPS or other useful tools/scripts
+\[todo\]
