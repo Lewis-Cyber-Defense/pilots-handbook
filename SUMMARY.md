@@ -2,7 +2,7 @@
 title: Table of contents
 description: 
 published: true
-date: 2024-02-22T16:57:49.490Z
+date: 2024-02-23T07:25:31.565Z
 tags: 
 editor: markdown
 dateCreated: 2024-02-22T06:11:51.710Z
@@ -15,13 +15,13 @@ dateCreated: 2024-02-22T06:11:51.710Z
 ## 🛡️ Defensive Security
 
 * [🐧 Linux System Administration](defensive-security/linux-system-administration/README.md)
+  * [Security checklist](defensive-security/linux-system-administration/security-checklist.md)
   * [OS Info](defensive-security/linux-system-administration/os-info.md)
   * [Services](defensive-security/linux-system-administration/services.md)
   * [Hardening](defensive-security/linux-system-administration/hardening.md)
   * [Logging](defensive-security/linux-system-administration/logging.md)
   * [Incident Response](defensive-security/linux-system-administration/incident-response.md)
-  * [Last resort checklist](defensive-security/linux-system-administration/security-checklist.md)
-  * [Hardening2](defensive-security/linux-system-administration/hardening2.md)
+  * [Hardening2 (temporary)](defensive-security/linux-system-administration/hardening2.md)
   * [Linux Command Cheat Sheet](defensive-security/linux-system-administration/linux-command-cheatsheet.md)
 * [🪟 Windows System Administration](defensive-security/windows-system-administration/README.md)
   * [Hardening](defensive-security/windows-system-administration/hardening.md)
