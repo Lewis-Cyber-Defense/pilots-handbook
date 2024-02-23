@@ -2,7 +2,7 @@
 title: Linux System Administration
 description: 
 published: true
-date: 2024-02-23T14:42:24.832Z
+date: 2024-02-23T14:46:41.959Z
 tags: 
 editor: markdown
 dateCreated: 2024-02-22T06:13:25.868Z
@@ -57,5 +57,4 @@ dateCreated: 2024-02-22T06:13:25.868Z
 	- Network connections
 	- Process Information
 	- Log analysis
-- [Hardening2](linux-system-administration/hardening2.md)
 - [Linux Command Cheat sheet](linux-system-administration/linux-command-cheatsheet.md)
