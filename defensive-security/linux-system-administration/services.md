@@ -2,13 +2,15 @@
 title: Services
 description: 
 published: true
-date: 2024-02-23T15:05:26.231Z
+date: 2024-02-23T18:31:45.035Z
 tags: 
 editor: markdown
 dateCreated: 2024-02-22T06:13:47.556Z
 ---
 
 # Enable/Disable Services
+List running services with `systemctl | grep running | grep service`
+
 Services can be enabled or disabled with `sudo systemctl enable <service> --now` and `sudo systemctl disable <service> --now` respectively.
 
 Note that services can still be ran after being disabled. To truly disable them, run `systemctl mask <service>` afterwards.
