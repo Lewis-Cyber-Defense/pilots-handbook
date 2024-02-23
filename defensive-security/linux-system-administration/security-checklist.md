@@ -2,7 +2,7 @@
 title: Security Checklist
 description: 
 published: true
-date: 2024-02-23T07:19:47.435Z
+date: 2024-02-23T07:22:17.984Z
 tags: 
 editor: markdown
 dateCreated: 2024-02-23T04:36:27.056Z
@@ -174,3 +174,5 @@ sudo systemctl restart auditd
 ```
 ## 12. Set up IDS/IPS or other useful tools/scripts
 \[todo\]
+## 13. Additional
+### Check pam files
