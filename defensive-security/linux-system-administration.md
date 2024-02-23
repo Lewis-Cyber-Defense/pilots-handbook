@@ -2,7 +2,7 @@
 title: Linux System Administration
 description: 
 published: true
-date: 2024-02-23T18:43:11.162Z
+date: 2024-02-23T18:47:43.546Z
 tags: 
 editor: markdown
 dateCreated: 2024-02-22T06:13:25.868Z
@@ -37,7 +37,6 @@ dateCreated: 2024-02-22T06:13:25.868Z
 		- Mail
 		- Telnet
 		- SMB
-		- RPC
 		- FTP
 	- Ports based on service
 	- Service files
@@ -50,11 +49,21 @@ dateCreated: 2024-02-22T06:13:25.868Z
 		- SMTP
 	- IPTables/Firewall
 	- Fail2Ban IP Lockouts
+	- Backups
 - [Logging](linux-system-administration/logging.md)
 	- Application logs
 	- Set up auditd logging
+ 	- Ausearch
 - [Incident Response](linux-system-administration/incident-response.md)
 	- Network connections
 	- Process Information
 	- Log analysis
 - [Linux Command Cheat sheet](linux-system-administration/linux-command-cheatsheet.md)
+	- Basic Commands
+	- Linux Operators
+	- File Management
+	- User Management
+	- Networking
+	- Devices
+	- Basic Shell Scripting
+	- Important Files and Directories
