@@ -2,7 +2,7 @@
 title: Hardening 2 Electric Boogaloo
 description: 
 published: true
-date: 2024-02-23T07:33:40.229Z
+date: 2024-02-23T14:40:56.865Z
 tags: 
 editor: markdown
 dateCreated: 2024-02-22T06:13:31.452Z
@@ -42,10 +42,4 @@ Please note that the system init/service script is not automatically installed. 
 cp files/debian-initd /etc/init.d/fail2ban
 update-rc.d fail2ban defaults
 service fail2ban start
-```
-
-# File and Directory Perms
-## World Writable Files
-```bash
-find / -type f -perm -2 ! -path "/proc/*" -exec ls -l {} 2</dev/null \;
 ```
