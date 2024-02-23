@@ -2,7 +2,7 @@
 title: Table of contents
 description: 
 published: true
-date: 2024-02-23T07:35:59.421Z
+date: 2024-02-23T07:36:34.539Z
 tags: 
 editor: markdown
 dateCreated: 2024-02-22T06:11:51.710Z
@@ -14,7 +14,7 @@ dateCreated: 2024-02-22T06:11:51.710Z
 
 ## 🛡️ Defensive Security
 
-* [🐧 Linux System Administration](defensive-security/linux-system-administration)
+* [🐧 Linux System Administration](defensive-security/linux-system-administration.md)
   * [Security checklist](defensive-security/linux-system-administration/security-checklist.md)
   * [OS Info](defensive-security/linux-system-administration/os-info.md)
   * [Services](defensive-security/linux-system-administration/services.md)
