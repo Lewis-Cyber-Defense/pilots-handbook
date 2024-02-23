@@ -2,7 +2,7 @@
 title: Security Checklist
 description: 
 published: true
-date: 2024-02-23T04:52:46.488Z
+date: 2024-02-23T05:02:20.223Z
 tags: 
 editor: markdown
 dateCreated: 2024-02-23T04:36:27.056Z
@@ -16,6 +16,7 @@ Note: see [OS info](os-info#Misc) to get command history working on root, but pl
 
 Additionally, when hardening multiple machines, complete step one and two on each machine first before moving onto the next steps.
 ## 1. Disable any network connections
+Note that iptables rules do not persist on reboot. Either install the `iptables-persistent` package or restore rules with `iptables-restore < /etc/iptables/rules`
 ```bash
 # Set variables
 IPTABLES=/sbin/iptables
@@ -27,6 +28,9 @@ $IPTABLES -X
 $IPTABLES -P INPUT DROP
 $IPTABLES -P OUTPUT DROP
 $IPTABLES -P FORWARD DROP
+
+# Save iptables rules
+iptables-save > /etc/iptables/rules
 ```
 ## 2. Remove crontabs
 ```bash
@@ -77,13 +81,16 @@ vi /home/<user>/.zshrc
 ## 6. Check users and groups
 See the [OS info page](os-info#Passwords) for more information (please read the user and password sections before just determining if a user is 'good' or not)
 
-Make sure to verify UIDs and ensure there aren't duplicates:
+Make sure to verify UIDs and ensure there aren't duplicates also.
 ```bash
 # Show all duplicate UIDs
 cut /etc/passwd -d ':' -f 3 | sort | uniq -d
 
 # Easily see what user has the duplicate
 grep ":<UID>:" /etc/passwd
+
+# Print any user that has an empty password (add passwords to these users)
+sudo cat /etc/shadow | awk -F: '($2==""){print $1}'
 ```
 ## 7. Check sudoers files
 ```bash
@@ -115,13 +122,16 @@ $IPTABLES -A OUTPUT -p tcp --dport 80 --syn -m state --state NEW -j ACCEPT
 $IPTABLES -A OUTPUT -p tcp --dport 443 --syn -m state --state NEW -j ACCEPT
 $IPTABLES -A OUTPUT -p icmp --icmp-type echo-request -j ACCEPT
 $IPTABLES -A OUTPUT -o ! lo -j LOG --log-prefix "DROP " --log-ip-options --log-tcp-options
+
+# Save iptables
+iptables-save > /etc/iptables/rules
 ```
 
 ## 10. Patch system
 ### Ubuntu/Debian
 ```bash
 sudo apt-get update
-sudo apt-get dist-upgrade
+sudo apt-get upgrade
 ```
 ### CentOS
 ```bash
