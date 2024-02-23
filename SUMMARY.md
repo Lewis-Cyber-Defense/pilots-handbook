@@ -2,7 +2,7 @@
 title: Table of contents
 description: 
 published: true
-date: 2024-02-23T14:48:13.778Z
+date: 2024-02-23T14:52:40.744Z
 tags: 
 editor: markdown
 dateCreated: 2024-02-22T06:11:51.710Z
@@ -14,8 +14,8 @@ dateCreated: 2024-02-22T06:11:51.710Z
 
 ## 🛡️ Defensive Security
 * [Defensive Tool List](defensive-security/defensive-tool-list/README.md)
-### Linux
-* [🐧 Linux System Administration](defensive-security/linux-system-administration.md)
+### 🐧 Linux
+* [Linux System Administration Guide](defensive-security/linux-system-administration.md)
   * [Security checklist](defensive-security/linux-system-administration/security-checklist.md)
   * [OS Info](defensive-security/linux-system-administration/os-info.md)
   * [Services](defensive-security/linux-system-administration/services.md)
@@ -23,29 +23,29 @@ dateCreated: 2024-02-22T06:11:51.710Z
   * [Logging](defensive-security/linux-system-administration/logging.md)
   * [Incident Response](defensive-security/linux-system-administration/incident-response.md)
   * [Linux Command Cheat Sheet](defensive-security/linux-system-administration/linux-command-cheatsheet.md)
-### Windows
-* [🪟 Windows System Administration](defensive-security/windows-system-administration.md)
+### 🪟 Windows
+* [Windows System Administration Guide](defensive-security/windows-system-administration.md)
   * [Hardening](defensive-security/windows-system-administration/hardening.md)
 
 ## 🔫 CCDC
 
-* [Event Info](ccdc/event-info.md)
+* [Event Info](ccdc.md)
 * [💉 Injects](ccdc/injects.md)
 * [Palo Alto](ccdc/palo-alto.md)
 
 ## 🔋 DoE Cyberforce
 
-* [Event Info](doe-cyberforce/event-info.md)
+* [Event Info](doe-cyberforce.md)
 * [C-Suite Panel](doe-cyberforce/c-suite-panel.md)
 
 ## 🌐 Cyber 9/12
 
-* [Event Info](cyber-9-12/event-info.md)
+* [Event Info](cyber-9-12.md)
 * [Fundamentals](cyber-9-12/fundamentals.md)
 
 ## 🚩 CTFs
 
-* [Event Info](ctfs/event-info.md)
+* [Event Info](ctfs.md)
 * [Web Resources](ctfs/web-resources.md)
 * [Binex/Rev Resources](ctfs/binex-rev-resources.md)
 * [Cryptography Resources](ctfs/cryptography-resources.md)
