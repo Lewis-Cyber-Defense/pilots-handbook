@@ -2,14 +2,60 @@
 title: Security Checklist
 description: 
 published: true
-date: 2024-02-23T07:22:17.984Z
+date: 2024-02-23T16:49:32.756Z
 tags: 
 editor: markdown
 dateCreated: 2024-02-23T04:36:27.056Z
 ---
 
 # Service-focused
-\[todo\]
+Note: see [OS info](os-info.md#Misc) to get command history working on root, but please disable network connections and crontabs first.
+## 1. Figure out/know ASAP what services are required
+This should be in some sort of documentation, but if not, refer to the scoreboard and enumerate services with `ss -tulpn` and `ps flax`
+## 2. Disable all network connections except required services
+Note that iptables rules do not persist on reboot. Either install the `iptables-persistent` package or restore rules with `iptables-restore < /etc/iptables/rules`
+
+### Base IPtables rules
+```bash
+# Set variables
+IPTABLES=/sbin/iptables
+
+# Remove previous firewall rules (run all commands in order)
+$IPTABLES -F
+$IPTABLES -F -t nat
+$IPTABLES -X
+$IPTABLES -P INPUT DROP
+$IPTABLES -P OUTPUT DROP
+$IPTABLES -P FORWARD DROP
+
+# INPUT rules
+# This sets logging for dropped packets and refines rules to exclusively allow an outgoing tcp session for web ports.
+IPTABLES=/sbin/iptables
+$IPTABLES -A INPUT -m state --state INVALID -j LOG --log-prefix "DROP INVALID " --log-ip-options --log-tcp-options
+$IPTABLES -A INPUT -m state --state INVALID -j DROP
+$IPTABLES -A INPUT -m state --state ESTABLISHED,RELATED -j ACCEPT
+$IPTABLES -A INPUT -i ! lo -j LOG --log-prefix "DROP " --log-ip-options --log-tcp-options
+
+# OUTPUT rules
+$IPTABLES -A OUTPUT -m state --state INVALID -j LOG --log-prefix "DROP INVALID " --log-ip-options --log-tcp-options
+$IPTABLES -A OUTPUT -m state --state INVALID -j DROP
+$IPTABLES -A OUTPUT -m state --state ESTABLISHED,RELATED -j ACCEPT
+$IPTABLES -A OUTPUT -o ! lo -j LOG --log-prefix "DROP " --log-ip-options --log-tcp-options
+
+# Save iptables rules
+iptables-save > /etc/iptables/rules
+```
+### Allow network connections for services and pings
+```bash
+# Set variables
+IPTABLES=/sbin/iptables
+
+# Allow rules
+$IPTABLES -A INPUT -p tcp --dport <port> --syn -m state  --state NEW -j ACCEPT
+$IPTABLES -A INPUT -p icmp --icmp-type echo-request -j ACCEPT
+$IPTABLES -A OUTPUT -p tcp --dport <port> --syn -m state --state NEW -j ACCEPT
+$IPTABLES -A OUTPUT -p icmp --icmp-type echo-request -j ACCEPT
+```
 # Not service-focused (machines that don't have to run specific services)
 Note: see [OS info](os-info.md#Misc) to get command history working on root, but please disable network connections and crontabs first.
 
