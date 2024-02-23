@@ -2,7 +2,7 @@
 title: Table of contents
 description: 
 published: true
-date: 2024-02-23T14:47:41.791Z
+date: 2024-02-23T14:48:13.778Z
 tags: 
 editor: markdown
 dateCreated: 2024-02-22T06:11:51.710Z
@@ -24,7 +24,7 @@ dateCreated: 2024-02-22T06:11:51.710Z
   * [Incident Response](defensive-security/linux-system-administration/incident-response.md)
   * [Linux Command Cheat Sheet](defensive-security/linux-system-administration/linux-command-cheatsheet.md)
 ### Windows
-* [🪟 Windows System Administration](defensive-security/windows-system-administration/README.md)
+* [🪟 Windows System Administration](defensive-security/windows-system-administration.md)
   * [Hardening](defensive-security/windows-system-administration/hardening.md)
 
 ## 🔫 CCDC
