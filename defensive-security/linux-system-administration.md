@@ -2,7 +2,7 @@
 title: Linux System Administration
 description: 
 published: true
-date: 2024-02-23T14:46:41.959Z
+date: 2024-02-23T18:43:11.162Z
 tags: 
 editor: markdown
 dateCreated: 2024-02-22T06:13:25.868Z
@@ -11,7 +11,7 @@ dateCreated: 2024-02-22T06:13:25.868Z
 # 🐧 Linux System Administration
 
 - [Security Checklist](linux-system-administration/security-checklist.md)
-	- This is the "help I didn't read anything that was sent so now I'm going in completely blind and I don't know what to do" guide
+	- This is the "help I didn't read any information and didn't prepare so now I'm going in completely blind" guide
 - [OS Info](linux-system-administration/os-info.md)
 	- Checking OS information
 	- Passwords
