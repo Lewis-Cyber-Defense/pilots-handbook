@@ -2,7 +2,7 @@
 title: OS Info
 description: 
 published: true
-date: 2024-02-23T14:40:39.798Z
+date: 2024-02-23T18:28:56.573Z
 tags: 
 editor: markdown
 dateCreated: 2024-02-22T06:13:44.259Z
@@ -74,10 +74,14 @@ sudo apt-get update && sudo apt-get upgrade
 
 Red hat-based systems:
 ```shell
-sudo yum update
+sudo yum check-update
 sudo yum upgrade
 ```
 
+Fedora:
+```shell
+sudo dnf upgrade
+```
 Arch-based systems:
 ```shell
 sudo pacman -Syu
