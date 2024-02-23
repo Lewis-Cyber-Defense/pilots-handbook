@@ -2,7 +2,7 @@
 title: Security Checklist
 description: 
 published: true
-date: 2024-02-23T07:19:18.553Z
+date: 2024-02-23T07:19:47.435Z
 tags: 
 editor: markdown
 dateCreated: 2024-02-23T04:36:27.056Z
@@ -11,7 +11,7 @@ dateCreated: 2024-02-23T04:36:27.056Z
 # Service-focused
 \[todo\]
 # Not service-focused (machines that don't have to run specific services)
-Note: see [OS info](os-info#Misc) to get command history working on root, but please disable network connections and crontabs first.
+Note: see [OS info](os-info.md#Misc) to get command history working on root, but please disable network connections and crontabs first.
 
 Additionally, when hardening multiple machines, complete step one and two on each machine first before moving onto the next steps.
 ## 1. Disable any network connections
