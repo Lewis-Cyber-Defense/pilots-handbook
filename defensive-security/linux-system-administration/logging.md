@@ -2,12 +2,14 @@
 title: Logging
 description: 
 published: true
-date: 2024-02-23T07:15:50.344Z
+date: 2024-02-23T07:30:41.670Z
 tags: 
 editor: markdown
 dateCreated: 2024-02-22T06:13:40.961Z
 ---
 
+# Application logs
+Application logs are stored in /var/log/\<application\>
 # Set up auditd logging
 ## Install
 ### Ubuntu:
@@ -56,10 +58,6 @@ grep -E 'EXECVE' -B 1 -A 3 /var/log/audit/audit.log > ~/command_executions; sed 
 -sv	Search given success value (yes or no)
 -ua	Search using user ID, euid, login id, or auid
 -ts	Search for events w/ time stamps =/+ given end time
-```
-## Using ausearch for IR
-```bash
-
 ```
 ## Most important ausearch keys
 ```
