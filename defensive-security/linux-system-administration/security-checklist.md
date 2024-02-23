@@ -2,7 +2,7 @@
 title: Security Checklist
 description: 
 published: true
-date: 2024-02-23T05:02:20.223Z
+date: 2024-02-23T06:04:07.819Z
 tags: 
 editor: markdown
 dateCreated: 2024-02-23T04:36:27.056Z
@@ -132,6 +132,7 @@ iptables-save > /etc/iptables/rules
 ```bash
 sudo apt-get update
 sudo apt-get upgrade
+# if allowed, run: sudo apt-get dist-upgrade
 ```
 ### CentOS
 ```bash
@@ -141,4 +142,33 @@ sudo yum update
 ### Fedora
 ```bash
 sudo dnf upgrade
+```
+## 11. Set up auditd logging
+Refer to [the logging guide](logging) for info on looking through the logs
+### Install
+#### Ubuntu:
+```bash
+sudo apt-get install -y auditd audispd-plugins
+```
+#### Centos/Fedora:
+```bash
+sudo yum install -y auditd audispd-plugins
+```
+### Configure log files
+```bash
+# Download config
+rm /etc/audit/audit.rules
+curl https://raw.githubusercontent.com/Neo23x0/auditd/master/audit.rules > /etc/audit/audit.rules
+
+# Open config in any editor
+vi /etc/audit/audit.rules
+# Add the following lines to the end of the file
+-a always,exit -F arch=b64 -S execve -k command
+
+
+# Make config immutable
+sudo chattr +i /etc/audit/audit.rules
+
+# Restart auditd
+sudo systemctl restart auditd
 ```
