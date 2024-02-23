@@ -2,7 +2,7 @@
 title: Table of contents
 description: 
 published: true
-date: 2024-02-23T07:36:34.539Z
+date: 2024-02-23T14:47:41.791Z
 tags: 
 editor: markdown
 dateCreated: 2024-02-22T06:11:51.710Z
@@ -13,7 +13,8 @@ dateCreated: 2024-02-22T06:11:51.710Z
 * [Introduction](README.md)
 
 ## 🛡️ Defensive Security
-
+* [Defensive Tool List](defensive-security/defensive-tool-list/README.md)
+### Linux
 * [🐧 Linux System Administration](defensive-security/linux-system-administration.md)
   * [Security checklist](defensive-security/linux-system-administration/security-checklist.md)
   * [OS Info](defensive-security/linux-system-administration/os-info.md)
@@ -21,11 +22,10 @@ dateCreated: 2024-02-22T06:11:51.710Z
   * [Hardening](defensive-security/linux-system-administration/hardening.md)
   * [Logging](defensive-security/linux-system-administration/logging.md)
   * [Incident Response](defensive-security/linux-system-administration/incident-response.md)
-  * [Hardening2 (temporary)](defensive-security/linux-system-administration/hardening2.md)
   * [Linux Command Cheat Sheet](defensive-security/linux-system-administration/linux-command-cheatsheet.md)
+### Windows
 * [🪟 Windows System Administration](defensive-security/windows-system-administration/README.md)
   * [Hardening](defensive-security/windows-system-administration/hardening.md)
-* [Defensive Tool List](defensive-security/defensive-tool-list/README.md)
 
 ## 🔫 CCDC
 
