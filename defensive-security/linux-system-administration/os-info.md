@@ -2,7 +2,7 @@
 title: OS Info
 description: 
 published: true
-date: 2024-02-23T03:30:39.869Z
+date: 2024-02-23T14:40:39.798Z
 tags: 
 editor: markdown
 dateCreated: 2024-02-22T06:13:44.259Z
@@ -12,7 +12,6 @@ dateCreated: 2024-02-22T06:13:44.259Z
 There are two ways to check OS version:
 - `lsb_release -a`
 - `cat /etc/os-release`
-
 # Passwords
 Passwords can be changed with the `passwd` command:
 
@@ -37,7 +36,6 @@ Example entry for a non-login user:
 Vulnerable information leak example:
 
 `root:changeme:19761::::::`
-
 # Users
 Users can be shown by reading `/etc/passwd`
 
@@ -58,7 +56,6 @@ Groups are located in `/etc/group`, with the following format:
 `groupname:password:GID:users`
 
 The most important groups are the `root` and `wheel` groups, which contain users allowed to run sudo commands.
-
 # Sudo
 Sudo allows specific users to execute commands as the root user.
 
@@ -67,7 +64,6 @@ These users are determined in the `/etc/sudoers` file and all files in the `/etc
 These files allow users or groups to execute a command, and can even prevent password requirements for certain commands.
 
 Permissions can also be seen with `sudo -l`
-
 # Updates and Installs
 Updates can be done easily based on the OS
 
@@ -95,7 +91,6 @@ sudo yum install <package>        #red hat
 
 sudo pacman -S <package>          #arch
 ```
-
 # Binaries
 Binary files are located in a few directories, usually seen in PATH.
 
@@ -111,7 +106,6 @@ Here are some common binary locations:
 /sbin
 ```
 Directories can be added to PATH with `export PATH="<path>:$PATH"`
-
 # Crontab
 The crontab allows for scheduled tasks.
 
@@ -127,9 +121,7 @@ The following oneliner displays the crontabs of all users:
 Crontabs are executed by the cron daemon (crond), which can be stopped with `systemctl mask cron`
 
 Crond searches `/var/spool/cron`, `/etc/cron.d/`, and `/etc/crontab` for tasks to run.
-
 # Misc
-
 ## .bashrc
 The `~/.bashrc` file determines how shell sessions will work based on the user.
 
@@ -140,17 +132,14 @@ HISTFILE=$HOME/.bash_history
 ```
 
 Basically every line in this file is executed from top down at the start of each shell session.
-
 ## /tmp
 `/tmp` is a directory of temporary files. All users have read and write access to files in this directory, which is frequently used to store malware.
 
 Files are deleted from here on a reboot.
-
 ## env
 The `env` command displays environment variables.
 
 Information might be leaked here, especially in docker containers.
-
 ## SUID/SGID
 SUID and SGID run an executable with the permissions of the user owner and group owner respectively.
 
@@ -162,3 +151,41 @@ find / -type f -perm -2000 ! -path "/proc/*" -exec ls {} 2</dev/null \; # SGID
 ```
 
 These binaries can be checked using [GTFOBins](https://gtfobins.github.io/#+suid) (make sure you type the binary file before the `+suid`)
+## World-writable files
+World writable files could possibly be used to store malware or to export data
+
+Find these with the following:
+```bash
+find / -type f -perm -2 ! -path "/proc/*" -exec ls -l {} 2</dev/null \;
+```
+## Filename whitespace detector
+Malicious files can be created that look identical to files when using `ls` or other listings, using the following procedure:
+```bash
+> touch 'index.php'
+> touch $'index\u200D.php'
+> ls
+index.php  index.php
+> ls -la
+total 2
+-rw-r--r--  1 sysadmin sysadmin   0 Feb 23 08:33 index.php
+-rw-r--r--  1 sysadmin sysadmin   0 Feb 23 08:33 index.php
+```
+To protect against this, I wrote the following python script:
+```py
+#!/usr/bin/env python3
+
+import os
+
+def contains_non_printable(file_path):
+    try:
+        return any(ord(char) > 127 for char in file_path)
+    except TypeError:
+        return False
+
+
+for root, dirs, files in os.walk('/'):
+    for file in files:
+        if contains_non_printable(file):
+            full_path = os.path.join(root, file)
+            print(f"Found file with non-printable characters: {full_path}")
+```
