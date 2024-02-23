@@ -2,7 +2,7 @@
 title: Hardening
 description: 
 published: true
-date: 2024-02-23T15:44:46.632Z
+date: 2024-02-23T18:22:00.898Z
 tags: 
 editor: markdown
 dateCreated: 2024-02-22T06:11:58.378Z
@@ -75,10 +75,132 @@ UPDATE `ps_employee` SET `passwd` = MD5('<_COOKIE_><password>') WHERE `ps_employ
 Try to change passwords in the databases based on the services running. Figuring out how to do this will require research based on services.
 
 **Note:** phpmyadmin is a great MySQL management software, it can be installed with the `phpmyadmin` package. A setup guide can be found [here](https://help.ubuntu.com/community/phpMyAdmin)
-## SMTP
-
 # IPTables/Firewall
+IPtables is probably the best firewall we could use for linux, as it's the lowest level and supports logging, and is probably what red team will use.
 
+IPtables logs can be read with the `dmesg` command
+
+Note that iptables rules do not persist on reboot. Either install the `iptables-persistent` package or restore rules with `iptables-restore < /etc/iptables/rules`
+## Base rules
+Run these to remove all previous rules and to deny all packets except for established connections
+```bash
+# Set variables
+IPTABLES=/sbin/iptables
+
+# Remove previous firewall rules (run all commands in order)
+$IPTABLES -F
+$IPTABLES -F -t nat
+$IPTABLES -X
+$IPTABLES -P INPUT DROP
+$IPTABLES -P OUTPUT DROP
+$IPTABLES -P FORWARD DROP
+
+# INPUT rules
+# This sets logging for dropped packets and refines rules to exclusively allow an outgoing tcp session for web ports.
+$IPTABLES -A INPUT -m state --state INVALID -j LOG --log-prefix "DROP INVALID " --log-ip-options --log-tcp-options
+$IPTABLES -A INPUT -m state --state INVALID -j DROP
+$IPTABLES -A INPUT -m state --state ESTABLISHED,RELATED -j ACCEPT
+$IPTABLES -A INPUT ! -i lo -j LOG --log-prefix "DROP " --log-ip-options --log-tcp-options
+
+# OUTPUT rules
+$IPTABLES -A OUTPUT -m state --state INVALID -j LOG --log-prefix "DROP INVALID " --log-ip-options --log-tcp-options
+$IPTABLES -A OUTPUT -m state --state INVALID -j DROP
+$IPTABLES -A OUTPUT -m state --state ESTABLISHED,RELATED -j ACCEPT
+$IPTABLES -A OUTPUT ! -o lo -j LOG --log-prefix "DROP " --log-ip-options --log-tcp-options
+
+# Save iptables rules
+iptables-save > ~/rules
+```
+## Allowing incoming network connections for services
+Note: Outgoing connections **are not required** for services to work using these rules, as an incoming packet will establish a connection that will be allowed.
+```bash
+# Set variables
+IPTABLES=/sbin/iptables
+
+# Allow pings
+$IPTABLES -I INPUT 4 -p icmp --icmp-type echo-request -j ACCEPT
+$IPTABLES -I OUTPUT 4 -p icmp --icmp-type echo-request -j ACCEPT
+
+# Allow incoming TCP ports (use for services, e.g. port 22 for ssh, or 80 and 443 for web)
+$IPTABLES -I INPUT 4 -p tcp --syn -m state --state NEW -j ACCEPT --dport <port>
+
+# Allow incoming UDP ports
+$IPTABLES -I INPUT 4 -p udp -m state --state NEW -j ACCEPT --dport <port>
+
+# Save iptables rules
+iptables-save > ~/rules
+```
+## Allow web traffic for package updates and installs
+```bash
+$IPTABLES -I OUTPUT 4 -p udp -m state --state NEW -j ACCEPT --dport 53
+$IPTABLES -I OUTPUT 4 -p tcp --syn -m state -m multiport --state NEW -j ACCEPT --dports 80,443
+
+# Save iptables
+iptables-save > ~/rules
+```
+## Remove rules
+```bash
+# List all rules
+iptables -L --line-numbers
+
+# Delete rules
+iptables -D <chain> <number>
+
+# Example
+iptables -D OUTPUT 4
+```
+## Command rule reference
+For command references, we'll refer to a basic command and modify it to get whatever we want
+### Base command
+This appends a rule to the INPUT chain that accepts trafic to port 80:
+```bash
+$IPTABLES -A INPUT -j ACCEPT --dport 80
+```
+### Place rule in specific location
+Use `-I <chain> <location>`
+This places the base rule at the 4th spot of the chain, bumping the other rules down:
+```bash
+$IPTABLES -I INPUT 4 -j ACCEPT --dport 80
+```
+### Set specific protocol
+Use `-p <protocol>`
+This allows UDP packets only to port 80:
+```bash
+$IPTABLES -A INPUT -p tcp -j ACCEPT --dport 80
+```
+For TCP packets, you can also set a specific type of packet
+This allows TCP SYN packets only to port 80:
+```bash
+$IPTABLES -A INPUT -p tcp --syn -j ACCEPT --dport 80
+```
+### Set state
+Use `-m state --state <state>`
+This allows only new connections (very useful for logging) to port 80:
+```bash
+$IPTABLES -A INPUT -j ACCEPT -m state --state NEW --dport 80
+```
+### Set action
+Use `-j <action>`
+This denies all packets to port 80:
+```bash
+$IPTABLES -A INPUT -j DROP --dport 80
+```
+### Set source
+Use `-p <protocol> --sport <port>` for source ports, and `-s <ip or subnet>` for source IPs
+This allows all TCP packets coming from port 80:
+```bash
+$IPTABLES -A INPUT -j ACCEPT -p tcp --sport 80
+```
+This allows all packets coming from 10.0.0.1:
+```bash
+$IPTABLES -A INPUT -j ACCEPT -s 10.0.0.1
+```
+### Set destination
+Use `-m multiport -dports <port>` for dest ports
+This allows all packets heading to port 443:
+```bash
+$IPTABLES -A INPUT -j ACCEPT --dport 443
+```
 # Fail2Ban IP Lockouts
 - scans log files like `/var/log/auth.log` and bans IP addresses conducting too many failed login attempts
 
