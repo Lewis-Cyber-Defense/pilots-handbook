@@ -2,7 +2,7 @@
 title: Security Checklist
 description: 
 published: true
-date: 2024-02-23T04:36:27.056Z
+date: 2024-02-23T04:52:46.488Z
 tags: 
 editor: markdown
 dateCreated: 2024-02-23T04:36:27.056Z
@@ -87,18 +87,48 @@ grep ":<UID>:" /etc/passwd
 ```
 ## 7. Check sudoers files
 ```bash
+# Read file (you'll have to manually check for misconfigurations, use google or something unless I get a guide)
+visudo
 
+# Check sudoers directory (everything in here is executed as if it was in the /etc/sudoers file
+ls -la /etc/sudoers.d/
 ```
 ## 8. Check ssh keys
 ```bash
-
+# Check ssh directory for keys that can be used by redteam to sign in (we likely don't need ssh keys)
+ls -la /root/.ssh
+ls -la /home/<user>/.ssh
 ```
-## 9. Allow web traffic 
+## 9. Allow web traffic and pings
 ```bash
-
+# This sets logging for dropped packets and refines rules to exclusively allow an outgoing tcp session for web ports.
+IPTABLES=/sbin/iptables
+$IPTABLES -A INPUT -m state --state INVALID -j LOG --log-prefix "DROP INVALID " --log-ip-options --log-tcp-options
+$IPTABLES -A INPUT -m state --state INVALID -j DROP
+$IPTABLES -A INPUT -m state --state ESTABLISHED,RELATED -j ACCEPT
+$IPTABLES -A INPUT -p icmp --icmp-type echo-request -j ACCEPT
+$IPTABLES -A INPUT -i ! lo -j LOG --log-prefix "DROP " --log-ip-options --log-tcp-options
+$IPTABLES -A OUTPUT -m state --state INVALID -j LOG --log-prefix "DROP INVALID " --log-ip-options --log-tcp-options
+$IPTABLES -A OUTPUT -m state --state INVALID -j DROP
+$IPTABLES -A OUTPUT -m state --state ESTABLISHED,RELATED -j ACCEPT
+$IPTABLES -A OUTPUT -p tcp --dport 80 --syn -m state --state NEW -j ACCEPT
+$IPTABLES -A OUTPUT -p tcp --dport 443 --syn -m state --state NEW -j ACCEPT
+$IPTABLES -A OUTPUT -p icmp --icmp-type echo-request -j ACCEPT
+$IPTABLES -A OUTPUT -o ! lo -j LOG --log-prefix "DROP " --log-ip-options --log-tcp-options
 ```
 
 ## 10. Patch system
+### Ubuntu/Debian
 ```bash
-
+sudo apt-get update
+sudo apt-get dist-upgrade
+```
+### CentOS
+```bash
+sudo yum check-update
+sudo yum update
+```
+### Fedora
+```bash
+sudo dnf upgrade
 ```
