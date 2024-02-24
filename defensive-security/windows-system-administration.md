@@ -18,7 +18,7 @@ dateCreated: 2024-02-22T06:13:50.766Z
 - [Sysinternals Setup](windows-system-administration/sysinternals-setup-and-basics.md)
 	- Includes a suite of tools to monitor Windows Systems
 	- mentions other tools like osquery and autoruns
-- [Sysinternals Tools](windows-system-administration/sysinternals-tools.md)
+- [Sysinternals Tools](sysinternals-tools.md)
 	- Currently documented tools:
 		- tcpview
 		- procexp

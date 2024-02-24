@@ -1,4 +1,4 @@
-# Sysinternals Download and Setup (DONE)
+# Sysinternals Download and Setup
 - Download from URL 
 	- https://learn.microsoft.com/en-us/sysinternals/downloads/sysinternals-suite
 - Or download from command line:
