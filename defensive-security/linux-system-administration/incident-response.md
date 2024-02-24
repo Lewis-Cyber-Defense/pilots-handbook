@@ -2,7 +2,7 @@
 title: Incident Response
 description: 
 published: true
-date: 2024-02-22T23:06:40.302Z
+date: 2024-02-24T05:57:54.590Z
 tags: 
 editor: markdown
 dateCreated: 2024-02-22T06:13:34.669Z
@@ -37,10 +37,7 @@ ps aux
 ```
 
 # Log analysis
-
-
 ## ChopChopGo
-
 * Utilizes Sigma male :) rules for forensics artifact recovery. 
 * Looks through logs, and finds what  went wrong and where
 
@@ -48,57 +45,34 @@ Tested on:
 
 Ubuntu 22.04 Server
 
-
-
-**Installation**:
-
-```
+### Installation
+```bash
 git clone https://github.com/M00NLIG7/ChopChopGo.git
+cd ChopChopGo
 ```
 
-**You might need development files for systemd:**
-
+#### Dependencies
 ```
 # Ubuntu/Debian
-sudo apt-get install libsystemd-dev
-
+sudo apt-get install -y libsystemd-dev golang-go
 
 # DISCLAIMER: The following are untested:
 
 # CentOS 6 or older
-sudo yum install systemd-devel
+sudo yum install systemd-devel epel-release golang
 
 # CentOS 7 or newer
-sudo dnf install systemd-devel
+sudo dnf install systemd-devel epel-release golang
 
 # Fedora 
-sudo dnf install systemd-devel
+sudo dnf install systemd-devel epel-release golang 
 
 ```
-
-**Install Go:**
-
+#### Compile code
 ```
-# Important: Don't install regular go or gccgo-go. Do the below commands:
-
-# Ubuntu/Debian
-sudo apt install golang-go
-
-# Type in the above command, then go into the DIRECTORY ChopChopGo, then type this command in again. You should now see a file with the name ChopChopGo.
-
-
-
-# DISCLAIMER: The following are untested:
-
-# Fedora
-sudo dnf install epel-release 
-sudo dnf install golang
-
-# CentOS
-sudo yum install epel-release 
-sudo yum install golang
+# Make sure you're in the correct directory
+go build
 ```
-
 **Update Sigma Rules:**
 
 ```
