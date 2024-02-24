@@ -108,34 +108,43 @@ sudo yum install golang
 
 **Command Examples:**
 
-```
-# Defaults to searching through syslog
+Defaults to searching through syslog:
 
+```
 ./ChopChopGo 
+```
 
-# This searches through auditd log with the official sigma rules:
-# (I assume that /opt/evidence/auditd.log can be replaced with whatever directory is on your specific machine.)
+This searches through auditd log with the official sigma rules:
 
-./ChopChopGo -target auditd -rules ./rules/linux/auditd/ -file /opt/evidence/auditd.log
-
-# This searches through journald with specified rules:
-
-./ChopChopGo -target journald -rules ./rules/linux/builtin/
-
-# Output in CSV format:
-	
-	Add to end of command:
-
-		"-out csv"
-
-
-# Output in JSON format:
-
-	Add to end of command:
-		
-		"-out json" 
+(I assume that /opt/evidence/auditd.log can be replaced with whatever directory is on your specific machine.)
 
 ```
+./ChopChopGo -target auditd -rules ./rules/linux/auditd/ -file /opt/evidence/auditd.log
+```
+
+This searches through journald with specified rules:
+
+```
+./ChopChopGo -target journald -rules ./rules/linux/builtin/
+```
+
+Output in CSV format:
+	
+Add to end of command:
+
+```
+-out csv
+```
+
+Output in JSON format:
+
+Add to end of command:
+		
+```
+-out json 
+```
+
+
 
 
 
