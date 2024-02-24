@@ -27,9 +27,9 @@ dateCreated: 2024-02-22T06:13:50.766Z
 - [DeepBlueCLI](windows-system-administration/deep-blue-cli.md)
 	- a PowerShell Module for Threat Hunting via Windows Event Logs
 	- a logging tool
-- [winPEAS](windows-system-administration/winpeas)
+- [winPEAS](windows-system-administration/winpeas.md)
 	- scans to find Privilege Escalation Paths
-- [Comptetition Checklist](windows-system-administration/windows-checklist)
+- [Comptetition Checklist](windows-system-administration/windows-checklist.md)
 	- Checklist for setup/harden phase and incident response phase
 
 
