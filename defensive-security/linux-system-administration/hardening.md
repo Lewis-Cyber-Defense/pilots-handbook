@@ -201,6 +201,7 @@ This allows all packets heading to port 443:
 ```bash
 $IPTABLES -A INPUT -j ACCEPT --dport 443
 ```
+
 # Fail2Ban IP Lockouts
 - scans log files like `/var/log/auth.log` and bans IP addresses conducting too many failed login attempts
 
@@ -247,3 +248,49 @@ tar -cvpzf backup.tar.gz --exclude=/backup.tar.gz <directory>
 sudo tar -xvpzf backup.tar.gz -C /<directory_path> --numeric-owner
 ```
 Backups can be sent either on FTP(S), SFTP, or nc
+
+# LinPeas
+
+- "**LinPEAS is a script that search for possible paths to escalate privileges on Linux/Unix*/MacOS hosts.**"
+
+- Scans take about 5-10 minutes. 
+
+## Installation
+
+**From GitHub:**
+
+```
+curl -L https://github.com/carlospolop/PEASS-ng/releases/latest/download/linpeas.sh | sh
+```
+
+**Without curl:**
+
+```
+python -c "import urllib.request; urllib.request.urlretrieve('https://github.com/carlospolop/PEASS-ng/releases/latest/download/linpeas.sh', 'linpeas.sh')"
+```
+
+**OR**
+
+```
+python3 -c "import urllib.request; urllib.request.urlretrieve('https://github.com/carlospolop/PEASS-ng/releases/latest/download/linpeas.sh', 'linpeas.sh')"
+```
+
+**Make the file into an executable:**
+
+```
+chmod +x linpeas.sh
+```
+
+**Run linpeas.sh and output results to text file (Scan could take about 5-10 minutes):**
+
+```
+./linpeas.sh -a -r > /dev/shm/linpeas.txt
+```
+
+**Read the text file with color:**
+
+```
+less -r /dev/shm/linpeas.txt
+```
+
+
