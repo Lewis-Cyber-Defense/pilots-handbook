@@ -2,7 +2,7 @@
 title: Logging
 description: 
 published: true
-date: 2024-02-24T05:16:17.007Z
+date: 2024-02-24T06:00:42.303Z
 tags: 
 editor: markdown
 dateCreated: 2024-02-22T06:13:40.961Z
@@ -48,6 +48,13 @@ grep -E 'EXECVE' -B 1 -A 3 /var/log/audit/audit.log > ~/command_executions; sed 
 ```
 # Ausearch
 `ausearch` is used to search through the auditd log output
+
+To search through auditd logs, simply run `ausearch -i` and use one of the search flags
+
+Example:
+```bash
+ausearch -i -k susp_activity
+```
 ## Ausearch flags
 ```bash
 -i	interpret (Hex->Text)
