@@ -1,94 +1,4 @@
----
-title: Windows System Administration
-description: 
-published: true
-date: 2024-02-23T19:43:49.571Z
-tags: 
-editor: markdown
-dateCreated: 2024-02-23T06:11:51.710Z
----
-
-# 🪟 Windows System Administration
-- Note from Jay (2/23/24): 
-	- **Going to copy and paste my notes here for now. Will (maybe) fix after the competition**
-	- This is for Windows OS **and** Windows Servers OS, but leans toward Servers (Be mindful of scripts for each respective OS)
-
--  **Log files reside in**: (windows event viewer)
-	 ```
-	C:\Windows\System32\winevt\Logs
-	```
-- Event viewer > Windows Logs > System
-	- view tabs
-- Sysinternals (tools for monitorin)
-	- TCPView #tool
-		- shows TCP and UDP endpoints on system
-			- includes local and remote addresses
-			- TCP connection states
-	- Process Explorer #tool
-		- has two windows
-			- top window: 
-				- shows list of currently active processes 
-				- names of owning accounts, 
-			- bottom window: 
-				- different modes
-					- handle mode: view handles taht the process selected in the top window has opened
-					- DLL mode: view DLLs and memory-mapped files that process has loaded
-
-# Hardening Reference
-- https://github.com/PaulSec/awesome-windows-domain-hardening
-
-# Stopping and Disabling Services (ez)
-- https://www.windowscentral.com/how-start-and-stop-services-windows-10
-- Open services > stop service > disable service > ????? > profit
-
-# Sysinternals Download and Setup (DONE)
-- Download from URL 
-	- https://learn.microsoft.com/en-us/sysinternals/downloads/sysinternals-suite
-- Or download from command line:
-```
-Download-SysInternalsTools C:\Sysinternals
-```
-	OR 
-```
-Install-Module -Name SysInternals 
-```
-- **After download, you can launch tools from command line just by typing the program name in (elevated) PowerShell or Command Prompt** (Need to edit environment variables):
-	- Type "sysdm.cpl" in command prompt
-	- click on 'Advanced' Tab
-	- Click 'Path' > 'Edit'
-	- 'New'
-	- Paste file path of sysinternals suite (desktop)
-	- Now you can type the following commands in an **elevated **PS or cmd window: 
-		- tcpview
-		- procexp
-		- procmon
-		- sysmon
-## More about Sysinternals (Instructions in previous section)
-- Similar to Windows Event Logs but with more detail and granular control
-- The location of all executables is 
-	- C:\\Windows\\System32
-- Four main tools: 
-	- tcpview
-	- procexp
-	- procmon
-	- sysmon
-- Extra tools: 
-	- OSQuery #tools 
-		- open-source tool
-		- OSQuery only allows querying of events inside the machine*
-		- queries endpoints using SQL syntax
-		- #command: osqueri 
-			- try it in PowerShell
-		- Example of listing important process information by its process name: 
-	```
-	select pid,name,path from processes where name='lsass.exe';
-	```
-	-  Autoruns
-		- Good tool for searching malicious entries created int he local machine to establish persistence
-		- Program reports explorer shell extensions, browser helper objects, winlogon notifications, auto-start services, etc. 
-		- has a 'image hijacks' section which may be useful
-		- **This tool was very helpful on competition day for MWCCDC**
-## TCPView (Sysinternals Tool)
+## TCPView
 - shows detailed list of TCP and UDP endpoints 
 	- includes local and remote addresses; state of TCP connections
 - Tcpvcon is the command line version of TCPView
@@ -102,7 +12,7 @@ Install-Module -Name SysInternals
 tcpview
 ```
 
-## Process Explorer (Sysinternals Tool)
+## Process Explorer
 - to inspect the agent process, its properties, and associated threads and handles.
 - Shows active processes with name of owning accounts (top window)
 	- bottom window shows different output depending on mode: 
@@ -142,7 +52,7 @@ tcpview
 procexp
 ```
 
-## Process Monitor (Sysinternals Tool)
+## Process Monitor
 - to investigate if there were any indicators on why the agent was not operating as it should.
 -  advanced monitoring: shows real-time file system, registry and process/thread activity 
 	- combines features of legacy sysinternals util: filemon, regmon
@@ -167,7 +77,7 @@ procexp
 ```
 procmon
 ```
-## Sysmon Setup (Sysinternals Tool)
+## Sysmon Setup
 - **Configuration file for Sysmon**:  
 	-  https://github.com/olafhartong/sysmon-modular (has different config files but we will use the one below; also includes more info and instructions)
 	- Configuration file we will use: https://raw.githubusercontent.com/olafhartong/sysmon-modular/master/sysmonconfig-with-filedelete.xml 
@@ -185,12 +95,14 @@ sysmon.exe -c sysmonconfig.xml
 - To view sysmon logs, open Event Viewer: 
 	- > Application and Service Logs > Microsoft > Windows > Sysmon > Operational
 
+(Might remove this small section?)
 - Executing sysmon binary:
 ```
 Sysmon.exe -accepteula -i ..\Configuration\swift.xml`
 ```
 	- path of where the download is
-## Sysmon Overview (Sysinternals Tool)
+
+## Sysmon Overview 
 - Events within Sysmon are stored in 
 	- `Applications and Services Logs/Microsoft/Windows/Sysmon/Operational`
 -  Sysmon has 29 event IDs
@@ -291,114 +203,3 @@ Sysmon.exe -accepteula -i ..\Configuration\swift.xml`
 	</DnsQuery>
 </RuleGroup> 
 ```
-
-# Active Directory Hardening
-- To get into Group Policy Management Editor 
-	- Domains > Default Domain Policy > Right Click > Edit
-		- This will bring you to the editor
-	- Main pathways: 
-		- `Computer Configuration` -> `Policies` -> `Administrative Templates` 
-		- `Computer Configuration` -> `Windows Settings -> Security Settings 
-- Enable do not store LAN Manager hash value
-	- `Security Settings > Local Policies > Security Options > double click Network security - Do not store LM hash value on next password change policy > select "Define policy setting" > Enabled` 
--  Changing remote desktop settings
-	- `Administrative Templates` -> `Windows Components` -> `Remote Desktop Services` -> `Remote Desktop Session Host` -> `Security`
-- Disable Guest Accounts
-- Set Audit Policies
-	- `Security Settings > Local Policies > Audit Policy` 
-- Set User Rights Assignments 
-	- `Security Settings > Local Policies > User Rights Assignment 
-- Set Security Options
-	- `Security Settings > Local Policies > Security Options 
-- Enable SMB Signing
-	- `Security Settings > Local Policies > Security Options > double click Microsoft network server: Digitally sign communication (always) > select Enable`
-		- enabled this comp day
-- Enable LDAP Signing 
-	- `Security Settings > Local Policies > Security Options > Domain controller: LDAP server signing requirements > select Require`
-		- enabled this
-- Account Policies (Password, Account Lockout, Kerberos)
-	- `Windows Settings > Security Settings > Account Policies
-		- Password and Lockout seem most important
-
-# Windows Scripts
-- Bypass digital signature
-```
-Set-ExecutionPolicy -Scope Process -ExecutionPolicy Bypass
-```
-- **Active Directory Hardening (2019):**
-	- https://github.com/LoicVeirman/SecureAD (source)
-		- You need to download the whole repository in order for HardenAD.ps1 to run correctly
-			- https://github.com/LoicVeirman/SecureAD/blob/Master/HardenAD.ps1 (ps file) (try this second)
-	- **If that doesn't work, try:** 
-		- https://github.com/atlantsecurity/windows-hardening-scripts/blob/main/windows-server-2019-hardening-script.cmd
-	- **Other stuff you can try that didn't work for me:** 
-		- https://raw.githubusercontent.com/Cloudneeti/os-harderning-scripts/master/WindowsServer2019/CSBP_WindowsServer2019.ps1 (didn't work when I tried)
-		- https://raw.githubusercontent.com/Cloudneeti/os-harderning-scripts/master/WindowsServer2019/CIS_Benchmark_WindowsServer2019_v100.ps1  (didn't work when I tried)
-		- https://help.zscaler.com/zcspm/windows-server-2019 (kind of worked but I don't think it did anything; you also have to install the four tools below)
-```
-Install-Module -Name AuditPolicyDsc
-```
-```
-Install-Module -Name SecurityPolicyDsc
-```
-```
-Install-Module -Name NetworkingDsc
-```
-```
-Install-Module -Name PSDesiredStateConfiguration
-```
-- PowerShell Incident Response Windows Cheat Sheet (ps file): 
-	- https://gist.github.com/RomelSan/9ebef17aa9aa061d6b32e2e250181942
-- To run a script: 
-```
-./program_name
-```
-	- or just type the program name out
-
-
-# DeepBlueCLI (Extra)
-- Download
-	- https://github.com/sans-blue-team/DeepBlueCLI
-
-- **Log files reside in**: (windows event viewer)
- ```
-C:\Windows\System32\winevt\Logs
-```
-- Syntax
-```
-.\DeepBlue.ps1 <event log name> <evtx filename>
-```
-- Example command (notice .evtx extension which is located in folder above)
-```
-.\DeepBlue.ps1 .\evtx\smb-password-guessing-security.evtx
-```
-- Possibly useful file path
-```
-C:\Windows\System32\winevt\Logs\Security.evtx
-```
-- From the github: 
-	- Process local Windows security event log (PowerShell must be run as Administrator):
-		`.\DeepBlue.ps1` 
-			or 
-		`.\DeepBlue.ps1 -log security`
-- Process local Windows system event log:
-		`.\DeepBlue.ps1 -log system`
-## Examples
-| Event                                   | Command                                                                   |
-| --------------------------------------- | ------------------------------------------------------------------------- |
-| Event log manipulation                  | `.\DeepBlue.ps1 .\evtx\disablestop-eventlog.evtx`                         |
-| Metasploit native target (security)     | `.\DeepBlue.ps1 .\evtx\metasploit-psexec-native-target-security.evtx`     |
-| Metasploit native target (system)       | `.\DeepBlue.ps1 .\evtx\metasploit-psexec-native-target-system.evtx`       |
-| Metasploit PowerShell target (security) | `.\DeepBlue.ps1 .\evtx\metasploit-psexec-powershell-target-security.evtx` |
-| Metasploit PowerShell target (system)   | `.\DeepBlue.ps1 .\evtx\metasploit-psexec-powershell-target-system.evtx`   |
-| Mimikatz `lsadump::sam`                 | `.\DeepBlue.ps1 .\evtx\mimikatz-privesc-hashdump.evtx`                    |
-| New user creation                       | `.\DeepBlue.ps1 .\evtx\new-user-security.evtx`                            |
-| Obfuscation (encoding)                  | `.\DeepBlue.ps1 .\evtx\Powershell-Invoke-Obfuscation-encoding-menu.evtx`  |
-| Obfuscation (string)                    | `.\DeepBlue.ps1 .\evtx\Powershell-Invoke-Obfuscation-string-menu.evtx`    |
-| Password guessing                       | `.\DeepBlue.ps1 .\evtx\smb-password-guessing-security.evtx`               |
-| Password spraying                       | `.\DeepBlue.ps1 .\evtx\password-spray.evtx`                               |
-| PowerSploit (security)                  | `.\DeepBlue.ps1 .\evtx\powersploit-security.evtx`                         |
-| PowerSploit (system)                    | `.\DeepBlue.ps1 .\evtx\powersploit-system.evtx`                           |
-| PSAttack                                | `.\DeepBlue.ps1 .\evtx\psattack-security.evtx`                            |
-| User added to administrator group       | `.\DeepBlue.ps1 .\evtx\new-user-security.evtx`                            |
-
