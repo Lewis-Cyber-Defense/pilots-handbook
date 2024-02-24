@@ -2,7 +2,7 @@
 title: Incident Response
 description: 
 published: true
-date: 2024-02-24T05:57:54.590Z
+date: 2024-02-24T05:59:24.918Z
 tags: 
 editor: markdown
 dateCreated: 2024-02-22T06:13:34.669Z
@@ -37,6 +37,8 @@ ps aux
 ```
 
 # Log analysis
+## Auditd/Ausearch
+Refer to [ausearch docs](logging.md#ausearch)
 ## ChopChopGo
 * Utilizes Sigma male :) rules for forensics artifact recovery. 
 * Looks through logs, and finds what  went wrong and where
