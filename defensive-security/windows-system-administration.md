@@ -12,11 +12,11 @@ dateCreated: 2024-02-22T06:13:50.766Z
 	- Basics in Hardening, Disabling Services, Scripts (for AD Hardening, PS Incident Response), AD Hardening
 - [Other Logging Information](windows-system-administration/other-logging.md)
 	- Windows Event Viewer, Sysinternals Basics
-- [Sysinternals Setup](windows-system-administration/sysinternals-setup-and-basics)
+- [Sysinternals Setup](windows-system-administration/sysinternals-setup-and-basics.md)
 	- Includes a suite of tools to monitor Windows Systems; mentions osquery and autoruns
-- [Systinernals Tools](windows-system-administration/sysinternals-tools)
+- [Systinernals Tools](windows-system-administration/sysinternals-tools.md)
 	- Current tools: tcpview, procexp, procmon, sysmon
-- - [DeepBlueCli](windows-system-administration/deep-blue-cli.md)
+- [DeepBlueCli](windows-system-administration/deep-blue-cli.md)
 	- a PowerShell Module for Threat Hunting via Windows Event Logs
 
 
