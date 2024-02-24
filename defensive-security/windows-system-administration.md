@@ -24,6 +24,7 @@ dateCreated: 2024-02-22T06:13:50.766Z
 		- procexp
 		- procmon
 		- sysmon
+		- more to be added
 - [DeepBlueCLI](windows-system-administration/deep-blue-cli.md)
 	- a PowerShell Module for Threat Hunting via Windows Event Logs
 

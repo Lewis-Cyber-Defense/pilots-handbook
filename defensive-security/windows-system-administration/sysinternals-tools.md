@@ -1,4 +1,4 @@
-## TCPView
+# TCPView
 - shows detailed list of TCP and UDP endpoints 
 	- includes local and remote addresses; state of TCP connections
 - Tcpvcon is the command line version of TCPView
@@ -12,7 +12,7 @@
 tcpview
 ```
 
-## Process Explorer
+# Process Explorer
 - to inspect the agent process, its properties, and associated threads and handles.
 - Shows active processes with name of owning accounts (top window)
 	- bottom window shows different output depending on mode: 
@@ -52,7 +52,7 @@ tcpview
 procexp
 ```
 
-## Process Monitor
+# Process Monitor
 - to investigate if there were any indicators on why the agent was not operating as it should.
 -  advanced monitoring: shows real-time file system, registry and process/thread activity 
 	- combines features of legacy sysinternals util: filemon, regmon
@@ -77,7 +77,7 @@ procexp
 ```
 procmon
 ```
-## Sysmon Setup
+# Sysmon Setup
 - **Configuration file for Sysmon**:  
 	-  https://github.com/olafhartong/sysmon-modular (has different config files but we will use the one below; also includes more info and instructions)
 	- Configuration file we will use: https://raw.githubusercontent.com/olafhartong/sysmon-modular/master/sysmonconfig-with-filedelete.xml 
@@ -102,7 +102,7 @@ Sysmon.exe -accepteula -i ..\Configuration\swift.xml`
 ```
 	- path of where the download is
 
-## Sysmon Overview 
+# Sysmon Overview 
 - Events within Sysmon are stored in 
 	- `Applications and Services Logs/Microsoft/Windows/Sysmon/Operational`
 -  Sysmon has 29 event IDs
