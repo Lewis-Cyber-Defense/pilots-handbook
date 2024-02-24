@@ -2,7 +2,7 @@
 title: Defensive Tool List
 description: 
 published: true
-date: 2024-02-22T22:43:28.286Z
+date: 2024-02-24T05:15:54.297Z
 tags: 
 editor: markdown
 dateCreated: 2024-02-22T06:11:55.135Z

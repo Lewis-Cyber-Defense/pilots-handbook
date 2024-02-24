@@ -1,3 +1,13 @@
+---
+title: deep-blue-cli
+description: 
+published: true
+date: 2024-02-24T05:16:27.356Z
+tags: 
+editor: markdown
+dateCreated: 2024-02-24T01:57:27.659Z
+---
+
 
 - Download
 	- https://github.com/sans-blue-team/DeepBlueCLI

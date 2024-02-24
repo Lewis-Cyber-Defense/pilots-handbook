@@ -2,7 +2,7 @@
 title: Notetaking 101
 description: 
 published: true
-date: 2024-02-22T15:49:07.672Z
+date: 2024-02-24T05:16:03.841Z
 tags: 
 editor: markdown
 dateCreated: 2024-02-22T06:13:16.850Z

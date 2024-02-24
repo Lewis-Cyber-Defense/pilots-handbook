@@ -2,7 +2,7 @@
 title: Incident Response
 description: 
 published: true
-date: 2024-02-24T05:59:24.918Z
+date: 2024-02-24T05:59:27.256Z
 tags: 
 editor: markdown
 dateCreated: 2024-02-22T06:13:34.669Z

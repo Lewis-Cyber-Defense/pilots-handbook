@@ -2,11 +2,12 @@
 title: other-logging
 description: 
 published: true
-date: 2024-02-23T19:43:49.571Z
+date: 2024-02-24T05:16:32.773Z
 tags: 
 editor: markdown
-dateCreated: 2024-02-23T06:11:51.710Z
+dateCreated: 2024-02-24T01:57:34.649Z
 ---
+
 - Will fill this section more appropriately later on
 
 - **Log files reside in**: (windows event viewer)

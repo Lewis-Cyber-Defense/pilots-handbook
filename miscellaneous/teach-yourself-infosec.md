@@ -2,7 +2,7 @@
 title: Teach Yourself Infosec
 description: 
 published: true
-date: 2024-02-22T19:08:35.745Z
+date: 2024-02-24T05:16:06.665Z
 tags: 
 editor: markdown
 dateCreated: 2024-02-22T06:13:20.040Z

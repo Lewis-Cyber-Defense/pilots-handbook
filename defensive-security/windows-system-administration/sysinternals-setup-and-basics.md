@@ -1,3 +1,13 @@
+---
+title: sysinternals-setup-and-basics
+description: 
+published: true
+date: 2024-02-24T05:16:35.847Z
+tags: 
+editor: markdown
+dateCreated: 2024-02-24T01:57:38.161Z
+---
+
 # Sysinternals Download and Setup
 - Download from URL 
 	- https://learn.microsoft.com/en-us/sysinternals/downloads/sysinternals-suite

@@ -2,11 +2,12 @@
 title: Hardening
 description: 
 published: true
-date: 2024-02-22T15:49:38.116Z
+date: 2024-02-24T05:16:30.337Z
 tags: 
 editor: markdown
 dateCreated: 2024-02-22T06:13:53.944Z
 ---
+
 # Hardening
 - https://github.com/PaulSec/awesome-windows-domain-hardening (a general guide)
 

@@ -1,3 +1,13 @@
+---
+title: sysinternals-tools
+description: 
+published: true
+date: 2024-02-24T05:16:39.054Z
+tags: 
+editor: markdown
+dateCreated: 2024-02-24T02:50:29.740Z
+---
+
 # TCPView
 - shows detailed list of TCP and UDP endpoints 
 	- includes local and remote addresses; state of TCP connections
