@@ -1,5 +1,5 @@
 ---
-title: Windows System Administration
+title: other-logging
 description: 
 published: true
 date: 2024-02-23T19:43:49.571Z

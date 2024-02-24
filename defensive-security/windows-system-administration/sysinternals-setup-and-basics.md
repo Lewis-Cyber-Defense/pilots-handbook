@@ -1,7 +1,7 @@
 # Sysinternals Download and Setup
 - Download from URL 
 	- https://learn.microsoft.com/en-us/sysinternals/downloads/sysinternals-suite
-- Or download from command line:
+- Or download from command line (I haven't tried these commands to see if they work):
 ```
 Download-SysInternalsTools C:\Sysinternals
 ```
@@ -20,6 +20,32 @@ Install-Module -Name SysInternals
 		- procexp
 		- procmon
 		- sysmon
+
+## Sysmon Setup
+- **Configuration file for Sysmon**:  
+	-  https://github.com/olafhartong/sysmon-modular (has different config files but we will use the one below; also includes more info and instructions)
+	- Configuration file we will use: https://raw.githubusercontent.com/olafhartong/sysmon-modular/master/sysmonconfig-with-filedelete.xml 
+	- An alternative configuration file but you should use the one from above: 
+		- https://github.com/SwiftOnSecurity/sysmon-config
+- Installing sysmon with config file: 
+```
+ sysmon.exe -accepteula -i sysmonconfig.xml
+```
+- Update existing configuration file
+```
+sysmon.exe -c sysmonconfig.xml
+```
+- If installed correctly, 'sysmon' should be added to **Event Viewer**
+- To view sysmon logs, open Event Viewer: 
+	- > Application and Service Logs > Microsoft > Windows > Sysmon > Operational
+
+(Might remove this small section?)
+- Executing sysmon binary:
+```
+Sysmon.exe -accepteula -i ..\Configuration\swift.xml`
+```
+	- path of where the download is
+
 ## More about Sysinternals (Instructions in previous section)
 - Similar to Windows Event Logs but with more detail and granular control
 - The location of all executables is 

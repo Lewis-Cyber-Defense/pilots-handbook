@@ -2,7 +2,7 @@
 - Download
 	- https://github.com/sans-blue-team/DeepBlueCLI
 
-- **Log files reside in**: (windows event viewer)
+- **Log files reside in** (windows event viewer): 
  ```
 C:\Windows\System32\winevt\Logs
 ```

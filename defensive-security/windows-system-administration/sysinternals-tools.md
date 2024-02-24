@@ -56,7 +56,7 @@ procexp
 - to investigate if there were any indicators on why the agent was not operating as it should.
 -  advanced monitoring: shows real-time file system, registry and process/thread activity 
 	- combines features of legacy sysinternals util: filemon, regmon
-- **There's going to be a shit ton of events so you'll have to set filters**
+- **There's going to be a *lot* of events so you'll have to set filters**
 	- To pause captured events: File > 'Capture Events'
 - Create a filter #big:
 	- click green funnel/filter icon > pick setting (ex: PID is 3888 for notepad or PID is 2228 for file explorer) > then pick condition for "is" > make sure 'include' is set
@@ -77,31 +77,6 @@ procexp
 ```
 procmon
 ```
-# Sysmon Setup
-- **Configuration file for Sysmon**:  
-	-  https://github.com/olafhartong/sysmon-modular (has different config files but we will use the one below; also includes more info and instructions)
-	- Configuration file we will use: https://raw.githubusercontent.com/olafhartong/sysmon-modular/master/sysmonconfig-with-filedelete.xml 
-	- An alternative configuration file but you should use the one from above: 
-		- https://github.com/SwiftOnSecurity/sysmon-config
-- Installing sysmon with config file: 
-```
- sysmon.exe -accepteula -i sysmonconfig.xml
-```
-- Update existing configuration file
-```
-sysmon.exe -c sysmonconfig.xml
-```
-- If installed correctly, 'sysmon' should be added to **Event Viewer**
-- To view sysmon logs, open Event Viewer: 
-	- > Application and Service Logs > Microsoft > Windows > Sysmon > Operational
-
-(Might remove this small section?)
-- Executing sysmon binary:
-```
-Sysmon.exe -accepteula -i ..\Configuration\swift.xml`
-```
-	- path of where the download is
-
 # Sysmon Overview 
 - Events within Sysmon are stored in 
 	- `Applications and Services Logs/Microsoft/Windows/Sysmon/Operational`
