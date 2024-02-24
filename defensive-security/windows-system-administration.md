@@ -29,6 +29,8 @@ dateCreated: 2024-02-22T06:13:50.766Z
 	- a logging tool
 - [winPEAS](windows-system-administration/winpeas)
 	- scans to find Privilege Escalation Paths
+- [Comptetition Checklist](windows-system-administration/windows-checklist)
+	- Checklist for setup/harden phase and incident response phase
 
 
 
