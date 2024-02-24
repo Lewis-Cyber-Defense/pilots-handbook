@@ -8,5 +8,26 @@ editor: markdown
 dateCreated: 2024-02-22T06:13:50.766Z
 ---
 
-# 🪟 Windows System Administration
+- [Hardening](windows-system-administration/hardening.md)
+	- Basics in Hardening
+	- Disabling Services
+	- Scripts (for AD Hardening, PS Incident Response)
+	- AD Hardening
+- [Other Logging Information](windows-system-administration/other-logging.md)
+	- Windows Event Viewer, Sysinternals Basics
+- [Sysinternals Setup](windows-system-administration/sysinternals-setup-and-basics.md)
+	- Includes a suite of tools to monitor Windows Systems
+	- mentions other tools like osquery and autoruns
+- [Sysinternals Tools](windows-system-administration/sysinternals-tools.md)
+	- Currently documented tools:
+		- tcpview
+		- procexp
+		- procmon
+		- sysmon
+		- more to be added
+- [DeepBlueCLI](windows-system-administration/deep-blue-cli.md)
+	- a PowerShell Module for Threat Hunting via Windows Event Logs
+
+
+
 
