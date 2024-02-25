@@ -2,13 +2,13 @@
 title: Home
 description: 
 published: true
-date: 2024-02-24T05:15:22.075Z
+date: 2024-02-25T01:42:06.973Z
 tags: 
 editor: markdown
 dateCreated: 2024-02-22T06:38:47.233Z
 ---
 
-![pilots_handbook_wordmark.svg](/assets/pilots_handbook_wordmark.svg){.align-center}
+![pilots_handbook_wordmark_2x.svg](/assets/pilots_handbook_wordmark_2x.svg){.align-center}
 
 <p align="center"><em>A playbook, because thinking is hard, and reinventing the wheel is dumb.</em></p>
 
