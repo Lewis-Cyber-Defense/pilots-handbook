@@ -2,7 +2,7 @@
 title: Hardening
 description: 
 published: true
-date: 2024-02-24T05:16:09.566Z
+date: 2024-02-26T02:34:36.633Z
 tags: 
 editor: markdown
 dateCreated: 2024-02-22T06:11:58.378Z
@@ -240,14 +240,15 @@ service fail2ban start
 ## Tar backups
 [Reference](https://help.ubuntu.com/community/BackupYourSystem/TAR)
 ### Create backup
+Note: Do NOT use a wildcard `*` when creating backups. This will write your backup with mostly empty data.
 ```bash
-tar -cvpzf backup.tar.gz --exclude=/backup.tar.gz <directory>
+cd <directory> tar -cvpzf backup.tar.gz --exclude=/backup.tar.gz <folder>
 ```
 ### Restore backup
 ```bash
 sudo tar -xvpzf backup.tar.gz -C /<directory_path> --numeric-owner
 ```
-Backups can be sent either on FTP(S), SFTP, or nc
+Backups can be sent over FTP(S), SFTP, or netcat
 
 # LinPeas
 
