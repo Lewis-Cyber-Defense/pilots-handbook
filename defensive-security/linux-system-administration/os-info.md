@@ -2,7 +2,7 @@
 title: OS Info
 description: 
 published: true
-date: 2024-02-26T02:43:48.324Z
+date: 2024-02-26T02:44:53.619Z
 tags: 
 editor: markdown
 dateCreated: 2024-02-22T06:13:44.259Z
