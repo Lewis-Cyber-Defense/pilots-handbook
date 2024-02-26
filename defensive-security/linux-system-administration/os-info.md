@@ -2,7 +2,7 @@
 title: OS Info
 description: 
 published: true
-date: 2024-02-26T02:44:53.619Z
+date: 2024-02-26T05:42:37.554Z
 tags: 
 editor: markdown
 dateCreated: 2024-02-22T06:13:44.259Z
@@ -196,3 +196,11 @@ for root, dirs, files in os.walk('/'):
             full_path = os.path.join(root, file)
             print(f"Found file with non-printable characters: {full_path}")
 ```
+## Immutability
+There are some special flags that can be placed on files using the `chattr` command.
+
+These can be listed using `lsattr <file>`
+
+The `i` flag prevents any modification or deletion of a file, and is useful for config files, index files, system files that shouldn't be modified, etc.
+
+If you notice that logs aren't being created properly, backups aren't being restored correctly, files aren't being saved, or other weird issues revolving files, make sure you check if the file is immutable using `lsattr`.
