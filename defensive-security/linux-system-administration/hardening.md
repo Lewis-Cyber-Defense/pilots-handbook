@@ -2,7 +2,7 @@
 title: Hardening
 description: 
 published: true
-date: 2024-02-26T02:34:36.633Z
+date: 2024-02-26T02:36:38.053Z
 tags: 
 editor: markdown
 dateCreated: 2024-02-22T06:11:58.378Z
@@ -257,41 +257,23 @@ Backups can be sent over FTP(S), SFTP, or netcat
 - Scans take about 5-10 minutes. 
 
 ## Installation
-
-**From GitHub:**
-
+### One line execution
+```bash
+curl -L https://github.com/carlospolop/PEASS-ng/releases/latest/download/linpeas.sh | sh | less -R
 ```
-curl -L https://github.com/carlospolop/PEASS-ng/releases/latest/download/linpeas.sh | sh
-```
-
-**Without curl:**
-
+### Executable download
 ```
 python -c "import urllib.request; urllib.request.urlretrieve('https://github.com/carlospolop/PEASS-ng/releases/latest/download/linpeas.sh', 'linpeas.sh')"
 ```
-
-**OR**
-
-```
-python3 -c "import urllib.request; urllib.request.urlretrieve('https://github.com/carlospolop/PEASS-ng/releases/latest/download/linpeas.sh', 'linpeas.sh')"
-```
-
 **Make the file into an executable:**
-
 ```
 chmod +x linpeas.sh
 ```
-
 **Run linpeas.sh and output results to text file (Scan could take about 5-10 minutes):**
-
 ```
 ./linpeas.sh -a -r > /dev/shm/linpeas.txt
 ```
-
 **Read the text file with color:**
-
 ```
-less -r /dev/shm/linpeas.txt
+less -R /dev/shm/linpeas.txt
 ```
-
-
