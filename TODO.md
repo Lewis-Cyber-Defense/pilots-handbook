@@ -2,7 +2,7 @@
 title: Editors TOOD page
 description: A page for editors to take notes and plan wiki changes
 published: false
-date: 2024-02-25T21:25:11.871Z
+date: 2024-02-26T19:44:17.709Z
 tags: 
 editor: markdown
 dateCreated: 2024-02-25T21:25:11.871Z
@@ -11,6 +11,10 @@ dateCreated: 2024-02-25T21:25:11.871Z
 # Editor's TODO
 
 ## David's TODO
+
+### CCDC
+- Automate password changes (and update password changelist doc)
+- Restart services after making changes (to kill sessions, also note some services like ssh use individual processes for connections, so restarting the service doesn't kill sessions)
 
 ### Application logs
 - journald
@@ -23,6 +27,7 @@ dateCreated: 2024-02-25T21:25:11.871Z
 #### Linux Fundamentals
 - Go into further detail about man/info/apropos
 - Service troubleshooting section
+- Check rc files
 
 ### Windows jargon
 - Disable WinRM (probably just a service)
