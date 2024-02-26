@@ -2,7 +2,7 @@
 title: Hardening
 description: 
 published: true
-date: 2024-02-26T02:36:38.053Z
+date: 2024-02-26T05:43:59.479Z
 tags: 
 editor: markdown
 dateCreated: 2024-02-22T06:11:58.378Z
@@ -10,7 +10,8 @@ dateCreated: 2024-02-22T06:11:58.378Z
 
 # General Hardening
 There's a few mindsets to use when hardening. Easiest is the *prevent all unauthorized access* mindset, which is great to quickly prevent initial access and to limit attacker capabilities. That comes down to just a few things:
-1. Change credentials and lock/remove accounts ([guide](os-info.md))
+1. Change credentials and lock/remove accounts ([guide](os-info.md#passwords))
+	- Note that unless specified, all users can be locked and passwords can be changed. Also remember to set [immutability](os-info.md#immutability) if future changes are not needed.
 2. Disable services ([guide](services.md))
 3. Ensure nothing is reaching out that shouldn't be (more info [here](incident-response.md))
 	1. Check crontabs for network connections
