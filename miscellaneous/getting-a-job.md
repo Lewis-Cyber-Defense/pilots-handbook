@@ -2,7 +2,7 @@
 title: Getting a Job in 2024
 description: Note that, as of writing, most of the stuff here is from my own (i.e. one person's experience). I hope that I can modify this to include other people's thoughts later.
 published: true
-date: 2024-03-25T02:03:35.824Z
+date: 2024-03-25T02:44:14.633Z
 tags: 
 editor: markdown
 dateCreated: 2024-03-25T02:03:35.824Z
@@ -56,6 +56,7 @@ The idea of a "perfect resume" will be debated for eternity and what I say here 
 - Always try to tailor your resume to what the job listing has in the description. If the job explicitly mentions `"Experience in creating security tools and understanding underlying programming languages (such as Python, C#, C/C++, Rust, Nim or similar)."`, you should not only be namedropping the languages that apply to you, but bringing up projects where you've applied those skills. One tip is to have a general resume for each type of job you're applying to, and then make a copy of your template to add or remove stuff as necessary.
 - With the tailoring in mind, you should frame your resume to tell the best narrative of why you should be employed there. You genuinely have to look at your resume and ask yourself what makes you different from anyone else you see at competitions or networking events, and how you can sell that.
 - Many companies use automatic scanners (aka ATS) to pick up on keywords and automatically filter on it. You can find sites that try to do this online to verify that the information being pulled out of your resume is the way you want it to be seen- don't want to miss out on opportunities because of a bad template
+- When writing bullets for your work experience, if possible, try and put metrics to what you do. Instead of saying "Handled various support tickets for campus students and staff", try to say "Handled 40-50 support tickets a week with a 90% satisfaction rate". If you don't have metrics, leaving it with the formula of "Action word --> stuff" is fine, but metrics are ideal.
 - The 1 page vs 2 page argument will exist until the end of time, and this will entirely depend on the company. I want to say in most cases (and this is coming from someone who is still very new), the companies that actually care about who you are will take the time to skim through 2 pages as long as the information you've included is worth including. If you're struggling to hit a page and a half or feel like you're adding fluff for the sake of making it longer, trim it down. Nobody will ever be upset at 1 page, but if you feel like you have enough to bring to the table and talk about with 2, I'd send it.
 
 ## The Interviews
@@ -70,6 +71,44 @@ If you feel like explaining technical concepts isn't something you can confident
 I also understand that a lot of people that are computer/science-heads can have a hard time communicating in general. If this is you, my best advice is to honestly (1) go talk to more people in person and (2) go watch interviews, shows, and podcasts of the people/celebrities that you think are the most charismatic and in touch with the world (i.e. don't say "pogchamp", "skill issue", or make niche internet references to people not in touch with the culture) and figure out what they do, how they do it, and why it works.
 
 ## Aside: On Certifications
-I, and many others, would like to imagine that having a degree that says you ~~googled~~ studied for about four years should be enough to prove technical ability, and sometimes, it is. 
+I, and many others, would like to imagine that having a degree that says you ~~googled~~ studied for about four years should be enough to prove technical ability, and sometimes, it is. However, in the cases where it isn't, certifications may be necessary to bypass those filters. Rule of thumb: Look at the companies where you want jobs and see what certs they're asking for (after all, it's more about demand at the end of the day). However, here is a non-comprehensive list of certifications that are industry recognized.
 
-## Aside, again: Levelling Up and Networking
+TODO - need to spend more time on this, been typing for 20 mins
+Security+ is a good generalist cert
+CISSP is when you've been in the industry for a bit
+OSCP is the one you get if you want to do offsec, however, in an ideal world, you get an employer to pay the $1650 price tag
+SANS/GIAC are great but are $6000+ per cert, never pay for these out of pocket
+CCNA is a good cert but is not specifically security-focused and in many cases not necessary (good if you like networking though)
+Any of the cloud platform certs (AWS, Microsoft Azure, GCP) are great investments, cloud will be big
+(I'm sure I'm missing a lot)
+
+The ones to avoid:
+CEH is a joke, only get it if work *requires* you to or you're in India, and if then, have them pay for it
+eLearnSecurity/INE used to be better but has since dramatically fallen off in quality and does not deserve anyone's money
+
+This blog from SpookySec is old (written in 2020), but still does a good job of summing up some of the major players when it comes to security operations: [link](https://blog.spookysec.net/certifications/) 
+
+## Aside, again: Leveling Up and Networking
+### Leveling Up
+Feeling like your resume is a bit sparse or that you need more skills? Here's some stuff you can do:
+
+- **Play in Competitions** - Whether it's collegiate events or CTFs, playing in competitions gives you an opportunity to get hands on with tools of the trade and level up your ability to process new problems. Even if you don't do well, you can learn a **ton** from other people and their writeups, and be presented with scenarios you would have never seen otherwise. Good networking opportunities as well.
+- **Code Projects on Github** - The best way to demonstrate proficiency with a programming language is having a project out to the public. However, don't just make projects for the sake of making them (unless you want to demonstrate a specific skillset). If you wouldn't use your own project, why should anyone else?
+	- If you struggle to make your own project, why not contribute to open source projects on GitHub? People are always looking for help to fix bugs and improve products. Some might be more intimidating than others, but again, these are other opportunities to learn.
+- **Blogs** - Having a blog is a great way to practice communicating technical concepts to audiences of various levels. However, like the bullet before, make your posts high-quality. If you wouldn't read your own blog, why should anyone else? If you do CTF writeups, don't just say "I did SQL injection with SQLmap", explain what it is! If you do technical deep dives, take the opportunity to walk people through the logic behind why things happen and why certain choices were made.
+- **Use the Internet** - Platforms like TryHackMe, HackTheBox Academy, Cyberdefenders, Vulnlab, Blue Team Labs Online, etc. are all places you can spend more time in the lab and applying things you learn in class, leveraging the theory you know.
+- **Make a Homelab** - This one has a bit of a cost barrier, but you can learn a lot by setting up your own server or network at home. The benefits are self explanatory, but the resources are out there to get started here. (however, you do not have to have a homelab to get into security)
+- **Volunteering** - If you're graduating and can no longer be on blue team for competitions, consider volunteering at your region's CCDC red team, CPTC blue team, or Cyberforce teams. You can make a lot of good connections here and learn from people who are actively working in the industry.
+
+There are plenty more ways, but these are some of the ones from off the top of my head. Anything that demonstrates an ability you have is good.
+
+### Networking
+I left this for last, but honestly, this can be the thing that lets you bypass this whole process in the first place. I'm not necessarily the best authority on the subject, but my general policy is that networking is more than just accepting every single connection on LinkedIn. Find quality connections that, ideally, you've talked to and can actually help you or learn from. I've been writing for over an hour now, so forgive me if these bullets are lackluster:
+
+- **Go to 🫱 conferences/meetups‼️** - There are plenty of conferences and meetups happening all the time, and these are the best places to meet and hang out with people in the industry. Even if you don't make any friends, you can still probably learn some new things. A brief list of stuff in the Chicagoland area: THOTCON, Blue Team Con, BSides Chicago, BurbSec, DC312.
+- **Volunteering** - See bullet from earlier
+- **Other Students/Alumni** - You never know who knows just the right person. That's all I really have to say about this one. People might not be able to just give you a job, but they can potentially help point you in the right direction.
+- **Online Groups** - This one's a bit tougher to count as actual networking, because it's really easy to just talk to strangers on Discord and get nothing done. However, I think some of the smaller communities tend to have the most networking happen. I didn't really find people on bigger Discord servers like TryHackMe or HackTheBox, but groups like Black Hills Infosec, The Taggart Institute, CryptoHack, DC615, and even the unofficial CCDC discord server can get you in touch with people you would have never met otherwise.
+
+## Conclusion
+TODO
