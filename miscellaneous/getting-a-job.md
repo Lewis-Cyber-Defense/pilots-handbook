@@ -2,13 +2,13 @@
 title: Getting a Job in 2024
 description: Note that, as of writing, most of the stuff here is from my own (i.e. one person's experience). I hope that I can modify this to include other people's thoughts later.
 published: true
-date: 2024-03-25T02:44:14.633Z
+date: 2024-03-25T02:49:35.645Z
 tags: 
 editor: markdown
 dateCreated: 2024-03-25T02:03:35.824Z
 ---
 
-# Finding a Job in 2024
+# An Opinionated/Objective Look at Getting a Job in 2024
 
 > **Context**: I recently got a job and recently messaged a person for 30 mins straight on how to find a job in infosec. Needless to say, I figured it was best to document a good chunk of what I talked about here, where anyone can see it.
 
