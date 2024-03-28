@@ -2,7 +2,7 @@
 title: Getting a Job in 2024
 description: Note that, as of writing, most of the stuff here is from my own (i.e. one person's experience). I hope that I can modify this to include other people's thoughts later.
 published: true
-date: 2024-03-25T02:49:35.645Z
+date: 2024-03-28T20:06:49.627Z
 tags: 
 editor: markdown
 dateCreated: 2024-03-25T02:03:35.824Z
@@ -28,6 +28,8 @@ There are also some biases that I'll state now (prone to change if someone else 
 I started applying for security jobs back in late December 2023 to early January 2024, and concluded my job hunt at the beginning of March. I was primarily looking for offsec roles, but was open to doing more defensive stuff like SOC work or AppSec if I was really desperate.
 
 I cast a bit of a wide net, but at the same time, I definitely skipped a lot of jobs that were in fintech/finance, military, etc. out of principle- I just didn't feel comfortable working directly for those institutions. Honestly though, I think prioritizing stability over how "ethical" the company might be the play, but that's entirely a personal decision.
+
+All this said, **I definitely got lucky**, it's very hard to convince a company to let you handle security things when you haven't even worked as a system administrator or in IT. I definitely have a skill set that works, but the biggest challenge is really just getting in the door.
 
 ## The Job Hunt
 As someone who has a decent amount of technical ability, I had a very simple game plan:
@@ -92,6 +94,7 @@ This blog from SpookySec is old (written in 2020), but still does a good job of 
 ### Leveling Up
 Feeling like your resume is a bit sparse or that you need more skills? Here's some stuff you can do:
 
+- **Internships** - College is the best time to get internships, as most companies will only offer internships to students. The search for an internship is similar to a job, except they won't expect you to have as strong of a background. If you're really struggling to find something for the summer, Argonne has their SULI program and Lewis has SURE which are both undergraduate research positions. Definitely not full time security positions, but a place to start :)
 - **Play in Competitions** - Whether it's collegiate events or CTFs, playing in competitions gives you an opportunity to get hands on with tools of the trade and level up your ability to process new problems. Even if you don't do well, you can learn a **ton** from other people and their writeups, and be presented with scenarios you would have never seen otherwise. Good networking opportunities as well.
 - **Code Projects on Github** - The best way to demonstrate proficiency with a programming language is having a project out to the public. However, don't just make projects for the sake of making them (unless you want to demonstrate a specific skillset). If you wouldn't use your own project, why should anyone else?
 	- If you struggle to make your own project, why not contribute to open source projects on GitHub? People are always looking for help to fix bugs and improve products. Some might be more intimidating than others, but again, these are other opportunities to learn.
