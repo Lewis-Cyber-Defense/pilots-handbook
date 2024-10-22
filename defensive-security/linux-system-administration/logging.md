@@ -2,7 +2,7 @@
 title: Logging
 description: 
 published: true
-date: 2024-02-24T06:00:42.303Z
+date: 2024-10-22T20:48:29.804Z
 tags: 
 editor: markdown
 dateCreated: 2024-02-22T06:13:40.961Z
@@ -42,6 +42,11 @@ sudo systemctl restart auditd
 # If auditd won't restart, open /usr/lib/systemd/system/auditd.service and set RefuseManualStop=yes
 # Then run systemctl daemon-reload
 ```
+### One line installation:
+```bash
+rm /etc/audit/audit.rules && sudo curl https://raw.githubusercontent.com/Neo23x0/auditd/master/audit.rules > ./audit.rules && sudo mv ./audit.rules /etc/audit/audit.rules && sudo echo '-a always,exit -F arch=b64 -S execve -k command' >> /etc/audit/audit.rules && sudo chattr +i /etc/audit/audit.rules && sudo systemctl enable --now auditd && sudo systemctl restart auditd
+```
+
 ## Extract auditd command execution events to ~/command_executions
 ```bash
 grep -E 'EXECVE' -B 1 -A 3 /var/log/audit/audit.log > ~/command_executions; sed -i -e 's/^type=SYSCALL/\nSyscall/' -e 's/^type=EXECVE/Command/' -e 's/^type=CWD/Current_directory/' -e 's/^type=PATH/Path/' ~/command_executions; awk '{match($0, /msg=audit\(([0-9]+)\.[0-9]+:[0-9]+\)/, a); $0=gensub(/msg=audit\([0-9]+\.[0-9]+:[0-9]+\)/, strftime("%H:%M:%S", a[1]), "g"); print}' ~/command_executions > ~/command_executions2; mv ~/command_executions2 ~/command_executions; sed -i -e 's/arch=.* success/success/' -e 's/exit=.* ppid/ppid/' -e 's/ comm=/ command=/' -e 's/ cwd=//' -e 's/inode.*ouid/ouid/' -e 's/ rdev=.*//' -e 's/argc=/arguments=/' ~/command_executions
@@ -237,3 +242,39 @@ file_modification: Unsuccessful file modification
 command: Non-root command execution
 ```
 
+# Splunk
+
+Splunk is basically a search engine for log files, allowing you to search logs and other data across systems.
+
+## Ubuntu installation
+
+Run the following oneliners to install Splunk on a fresh Ubuntu server:
+
+### Enterprise Server
+```bash
+sudo apt-get update && sudo apt-get install ca-certificates curl && sudo install -m 0755 -d /etc/apt/keyrings && sudo curl -fsSL https://download.docker.com/linux/ubuntu/gpg -o /etc/apt/keyrings/docker.asc && sudo chmod a+r /etc/apt/keyrings/docker.asc && echo "deb [arch=$(dpkg --print-architecture) signed-by=/etc/apt/keyrings/docker.asc] https://download.docker.com/linux/ubuntu $(. /etc/os-release && echo "$VERSION_CODENAME") stable" | sudo tee /etc/apt/sources.list.d/docker.list > /dev/null && sudo apt-get update && sudo apt-get install -y docker-ce docker-ce-cli containerd.io docker-buildx-plugin docker-compose-plugin && sudo docker run -d -p 8000:8000 -p 9997:9997 -e "SPLUNK_PASSWORD=password" -e "SPLUNK_START_ARGS=--accept-license" -it --name so1 splunk/splunk:latest
+```
+### Universal Forwarder
+```bash
+sudo apt-get update && sudo apt-get install ca-certificates curl && sudo install -m 0755 -d /etc/apt/keyrings && sudo curl -fsSL https://download.docker.com/linux/ubuntu/gpg -o /etc/apt/keyrings/docker.asc && sudo chmod a+r /etc/apt/keyrings/docker.asc && echo "deb [arch=$(dpkg --print-architecture) signed-by=/etc/apt/keyrings/docker.asc] https://download.docker.com/linux/ubuntu $(. /etc/os-release && echo "$VERSION_CODENAME") stable" | sudo tee /etc/apt/sources.list.d/docker.list > /dev/null && sudo apt-get update && sudo apt-get install -y docker-ce docker-ce-cli containerd.io docker-buildx-plugin docker-compose-plugin && sudo docker run -d -v /:/ufhost/ --name uf1 --hostname uf1 -e "SPLUNK_PASSWORD=password" -e "SPLUNK_START_ARGS=--accept-license" -e "SPLUNK_STANDALONE_URL=192.168.69.137" -it splunk/universalforwarder:latest
+```
+
+## inputs.conf
+Here's a config file that should work on the universal forwarders for simple ingest
+```ini
+[monitor:///ufhost/var/log]
+
+[fschange:/ufhost/etc/]
+fullEvent=true
+pollPeriod=60
+recurse=true
+sendEventMaxSize=10000
+index=main
+
+[fschange:/ufhost/var/www]
+fullEvent=true
+pollPeriod=60
+recurse=true
+sendEventMaxSize=10000
+index=main
+```
