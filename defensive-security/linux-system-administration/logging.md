@@ -2,7 +2,7 @@
 title: Logging
 description: 
 published: true
-date: 2024-10-22T20:48:29.804Z
+date: 2024-10-22T20:50:17.491Z
 tags: 
 editor: markdown
 dateCreated: 2024-02-22T06:13:40.961Z
@@ -42,9 +42,9 @@ sudo systemctl restart auditd
 # If auditd won't restart, open /usr/lib/systemd/system/auditd.service and set RefuseManualStop=yes
 # Then run systemctl daemon-reload
 ```
-### One line installation:
+### One line configuration (install it first):
 ```bash
-rm /etc/audit/audit.rules && sudo curl https://raw.githubusercontent.com/Neo23x0/auditd/master/audit.rules > ./audit.rules && sudo mv ./audit.rules /etc/audit/audit.rules && sudo echo '-a always,exit -F arch=b64 -S execve -k command' >> /etc/audit/audit.rules && sudo chattr +i /etc/audit/audit.rules && sudo systemctl enable --now auditd && sudo systemctl restart auditd
+sudo rm /etc/audit/audit.rules && sudo curl https://raw.githubusercontent.com/Neo23x0/auditd/master/audit.rules > ./audit.rules && sudo mv ./audit.rules /etc/audit/audit.rules && sudo echo '-a always,exit -F arch=b64 -S execve -k command' >> /etc/audit/audit.rules && sudo chattr +i /etc/audit/audit.rules && sudo systemctl enable --now auditd && sudo systemctl restart auditd
 ```
 
 ## Extract auditd command execution events to ~/command_executions
