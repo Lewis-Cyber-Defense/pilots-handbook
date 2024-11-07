@@ -2,7 +2,7 @@
 title: Logging
 description: 
 published: true
-date: 2024-11-07T02:27:06.917Z
+date: 2024-11-07T02:37:54.590Z
 tags: 
 editor: markdown
 dateCreated: 2024-02-22T06:13:40.961Z
@@ -280,14 +280,80 @@ fullEvent=true
 pollPeriod=60
 recurse=true
 sendEventMaxSize=10000
-index=main
+index=filechange
+sourcetype = etc_change
 
 [fschange:///var/www]
 fullEvent=true
 pollPeriod=60
 recurse=true
 sendEventMaxSize=10000
-index=main
+index=filechange
+sourcetype = www_change
+
+[blacklist:$SPLUNK_HOME/etc/auth]
+
+[blacklist:$SPLUNK_HOME/etc/passwd]
+
+[monitor://$SPLUNK_HOME/var/log/splunk]
+index = _internal
+
+[monitor://$SPLUNK_HOME/var/log/watchdog/watchdog.log*]
+index = _internal
+
+[monitor://$SPLUNK_HOME/var/log/splunk/license_usage_summary.log]
+index = _telemetry
+
+[monitor://$SPLUNK_HOME/var/log/splunk/splunk_instrumentation_cloud.log*]
+index = _telemetry
+sourcetype = splunk_cloud_telemetry
+
+[monitor://$SPLUNK_HOME/etc/splunk.version]
+_TCP_ROUTING = *
+index = _internal
+sourcetype=splunk_version
+
+[batch://$SPLUNK_HOME/var/run/splunk/search_telemetry/*search_telemetry.json]
+move_policy = sinkhole
+index = _introspection
+sourcetype = search_telemetry
+crcSalt = <SOURCE>
+log_on_completion = 0
+
+[batch://$SPLUNK_HOME/var/spool/splunk]
+move_policy = sinkhole
+crcSalt = <SOURCE>
+
+[batch://$SPLUNK_HOME/var/spool/splunk/tracker.log*]
+index = _internal
+sourcetype = splunkd_latency_tracker
+move_policy = sinkhole
+
+[batch://$SPLUNK_HOME/var/spool/splunk/...stash_new]
+queue = stashparsing
+sourcetype = stash_new
+move_policy = sinkhole
+crcSalt = <SOURCE>
+time_before_close = 0
+
+[batch://$SPLUNK_HOME/var/spool/splunk/...stash_hec]
+sourcetype = stash_hec
+move_policy = sinkhole
+crcSalt = <SOURCE>
+
+[fschange:$SPLUNK_HOME/etc]
+disabled = false
+#poll every 10 minutes
+pollPeriod = 600
+#generate audit events into the audit index, instead of fschange events
+signedaudit=true
+recurse=true
+followLinks=false
+hashMaxSize=-1
+fullEvent=false
+sendEventMaxSize=-1
+filesPerDelay = 10
+delayInMills = 100
 ```
 
 ## outputs.conf
