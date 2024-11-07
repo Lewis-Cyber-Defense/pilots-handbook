@@ -2,7 +2,7 @@
 title: Logging
 description: 
 published: true
-date: 2024-10-22T20:52:59.755Z
+date: 2024-11-07T02:26:04.411Z
 tags: 
 editor: markdown
 dateCreated: 2024-02-22T06:13:40.961Z
@@ -39,13 +39,15 @@ sudo chattr +i /etc/audit/audit.rules
 sudo systemctl enable --now auditd
 sudo systemctl restart auditd
 
-# If auditd won't restart, open /usr/lib/systemd/system/auditd.service and set RefuseManualStop=yes
+# If auditd won't restart, open /usr/lib/systemd/system/auditd.service and set RefuseManualStop=no
 # Then run systemctl daemon-reload
+# Restart server, then set RefuseManualStop back to yes and run systemctl daemon-reload
 ```
 ### One line configuration (install it first):
 ```bash
 sudo rm /etc/audit/audit.rules && sudo sh -c 'curl https://raw.githubusercontent.com/Neo23x0/auditd/master/audit.rules > /etc/audit/audit.rules' && sudo sh -c 'echo "-a always,exit -F arch=b64 -S execve -k command" >> /etc/audit/audit.rules' && sudo chattr +i /etc/audit/audit.rules && sudo systemctl enable --now auditd && sudo systemctl restart auditd
 ```
+Note that this will *almost always* 
 
 ## Extract auditd command execution events to ~/command_executions
 ```bash
@@ -259,22 +261,43 @@ sudo apt-get update && sudo apt-get install ca-certificates curl && sudo install
 sudo apt-get update && sudo apt-get install ca-certificates curl && sudo install -m 0755 -d /etc/apt/keyrings && sudo curl -fsSL https://download.docker.com/linux/ubuntu/gpg -o /etc/apt/keyrings/docker.asc && sudo chmod a+r /etc/apt/keyrings/docker.asc && echo "deb [arch=$(dpkg --print-architecture) signed-by=/etc/apt/keyrings/docker.asc] https://download.docker.com/linux/ubuntu $(. /etc/os-release && echo "$VERSION_CODENAME") stable" | sudo tee /etc/apt/sources.list.d/docker.list > /dev/null && sudo apt-get update && sudo apt-get install -y docker-ce docker-ce-cli containerd.io docker-buildx-plugin docker-compose-plugin && sudo docker run -d -v /:/ufhost/ --name uf1 --hostname uf1 -e "SPLUNK_PASSWORD=password" -e "SPLUNK_START_ARGS=--accept-license" -e "SPLUNK_STANDALONE_URL=192.168.69.137" -it splunk/universalforwarder:latest
 ```
 
-## inputs.conf
-Here's a config file that should work on the universal forwarders for simple ingest
+## Linux inputs.conf
+Here's a config file that should work on the linux universal forwarders for simple data ingest
 ```ini
-[monitor:///ufhost/var/log]
+[monitor:///var/log]
 
-[fschange:/ufhost/etc/]
+[monitor:///var/log/audit]
+sourcetype = auditd
+
+[monitor:///var/log/httpd]
+sourcetype = httpd
+
+[fschange:///etc/]
 fullEvent=true
 pollPeriod=60
 recurse=true
 sendEventMaxSize=10000
 index=main
 
-[fschange:/ufhost/var/www]
+[fschange:///var/www]
 fullEvent=true
 pollPeriod=60
 recurse=true
 sendEventMaxSize=10000
 index=main
+```
+
+## outputs.conf
+Here's a config file that should work for log forwarding (make sure to change the server ip)
+```ini
+[indexAndForward]
+index = false
+
+[tcpout]
+defaultGroup = default-autolb-group
+
+[tcpout:default-autolb-group]
+server = 10.0.23.143:9997
+
+[tcpout-server://10.0.23.143:9997]
 ```
