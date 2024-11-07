@@ -2,7 +2,7 @@
 title: Logging
 description: 
 published: true
-date: 2024-11-07T02:26:04.411Z
+date: 2024-11-07T02:27:06.917Z
 tags: 
 editor: markdown
 dateCreated: 2024-02-22T06:13:40.961Z
@@ -271,6 +271,9 @@ sourcetype = auditd
 
 [monitor:///var/log/httpd]
 sourcetype = httpd
+
+[monitor:///var/log/manual]
+sourcetype = manual
 
 [fschange:///etc/]
 fullEvent=true
