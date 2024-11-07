@@ -2,7 +2,7 @@
 title: Logging
 description: 
 published: true
-date: 2024-11-07T02:37:54.590Z
+date: 2024-11-07T03:30:10.351Z
 tags: 
 editor: markdown
 dateCreated: 2024-02-22T06:13:40.961Z
@@ -369,4 +369,30 @@ defaultGroup = default-autolb-group
 server = 10.0.23.143:9997
 
 [tcpout-server://10.0.23.143:9997]
+```
+
+## /etc/crontab
+Here's a crontab to get more logs
+```
+SHELL=/bin/bash
+PATH=/sbin:/bin:/usr/sbin:/usr/bin
+MAILTO=root
+
+# For details see man 4 crontabs
+
+# Example of job definition:
+# .---------------- minute (0 - 59)
+# |  .------------- hour (0 - 23)
+# |  |  .---------- day of month (1 - 31)
+# |  |  |  .------- month (1 - 12) OR jan,feb,mar,apr ...
+# |  |  |  |  .---- day of week (0 - 6) (Sunday=0 or 7) OR sun,mon,tue,wed,thu,fri,sat
+# |  |  |  |  |
+# *  *  *  *  * user-name  command to be executed
+
+*/1 * * * *	root 	/bin/grep -E 'EXECVE' -B 1 -A 3 /var/log/audit/audit.log > /var/log/audit/command_executions; sed -i -e 's/^type=SYSCALL/\nSyscall/' -e 's/^type=EXECVE/Command/' -e 's/^type=CWD/Current_directory/' -e 's/^type=PATH/Path/' /var/log/audit/command_executions; awk '{match($0, /msg=audit\(([0-9]+)\.[0-9]+:[0-9]+\)/, a); $0=gensub(/msg=audit\([0-9]+\.[0-9]+:[0-9]+\)/, strftime("%H:%M:%S", a[1]), "g"); print}' /var/log/audit/command_executions > /var/log/audit/command_executions2; mv /var/log/audit/command_executions2 /var/log/audit/command_executions; sed -i -e 's/arch=.* success/success/' -e 's/exit=.* ppid/ppid/' -e 's/ comm=/ command=/' -e 's/ cwd=//' -e 's/inode.*ouid/ouid/' -e 's/ rdev=.*//' -e 's/argc=/arguments=/' /var/log/audit/command_executions
+*/1 * * * *	root	cat /etc/passwd | cut -d ':' -f 1 > /var/log/manual/usernames.log
+*/1 * * * *	root	cat /etc/group > /var/log/manual/groups.log
+*/1 * * * *	root	ss -nlp | grep -E 'LISTEN.*(([0-9]+\.){3}[0-9]+|\*|):[0-9]+' | sed -e 's/ \ \ /\ /g' | grep -e 'pid=[0-9]*' > /var/log/manual/listening_processes.log
+*/1 * * * *	root	ps faxo user,uid,pid,ppid,tt,start,command > /var/log/processes.log
+*/1 * * * *	root	ss -tupan > /var/log/network_connections.log
 ```
