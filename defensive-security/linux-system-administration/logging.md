@@ -2,7 +2,7 @@
 title: Logging
 description: 
 published: true
-date: 2024-11-07T03:42:50.736Z
+date: 2024-11-07T20:50:48.928Z
 tags: 
 editor: markdown
 dateCreated: 2024-02-22T06:13:40.961Z
@@ -248,6 +248,35 @@ command: Non-root command execution
 
 Splunk is basically a search engine for log files, allowing you to search logs and other data across systems.
 
+## Searches
+### Command executions
+This is my magnum opus for logging:
+```spl
+index=* sourcetype="auditd" type="EXECVE" a0!="ps" a0!="sh" a0!="/bin/bash" a0!="/bin/sh" a0!="pgrep" a0!="grep" a0!="cut" a0!="ss"
+| eval foo=""
+| eval a2 = coalesce(a2,foo)
+| eval a2 = urldecode(replace(a2,"([0-9A-F]{2})","%\1"))
+| fields - argc
+| search a2!="ps*" a2!="pgrep*" a2!="grep*" a2!="cut*"
+| foreach a*
+    [| eval cmdline=if(isnull(cmdline),'<<FIELD>>',if(isnull(<<FIELD>>),cmdline,cmdline + " " + '<<FIELD>>')) ]
+| search cmdline!="*command_execution*" cmdline!="sed -e s/ \\ \\ /\\ /g" cmdline!="runc init " cmdline!="cat /etc/group " cmdline!="cat /etc/passwd " cmdline!="/opt/gitlab/embedded/bin/curl --fail --max-time 10 --insecure https://localhost:443/help"
+| table _time,cmdline
+```
+### Manual logs (from crontab)
+```spl
+index=* sourcetype=manual
+```
+### Login sessions (/var/log/secure)
+```spl
+index=* sourcetype=linux_secure
+```
+### Cron execution logs
+```spl
+index=* sourcetype=cron
+```
+
+
 ## Ubuntu installation
 
 Run the following oneliners to install Splunk on a fresh Ubuntu server:
@@ -389,10 +418,16 @@ MAILTO=root
 # |  |  |  |  |
 # *  *  *  *  * user-name  command to be executed
 
-*/1 * * * *	root 	grep -E 'EXECVE' -B 1 -A 3 /var/log/audit/audit.log > /tmp/command_executions; sed -i -e 's/^type=SYSCALL/\nSyscall/' -e 's/^type=EXECVE/Command/' -e 's/^type=CWD/Current_directory/' -e 's/^type=PATH/Path/' /tmp/command_executions; awk '{match($0, /msg=audit\(([0-9]+)\.[0-9]+:[0-9]+\)/, a); $0=gensub(/msg=audit\([0-9]+\.[0-9]+:[0-9]+\)/, strftime("%H:%M:%S", a[1]), "g"); print}' /tmp/command_executions > /tmp/command_executions2; mv -f /tmp/command_executions2 /tmp/command_executions; sed -i -e 's/arch=.* success/success/' -e 's/exit=.* ppid/ppid/' -e 's/ comm=/ command=/' -e 's/ cwd=//' -e 's/inode.*ouid/ouid/' -e 's/ rdev=.*//' -e 's/argc=/arguments=/' /tmp/command_executions; mv -f /tmp/command_executions /var/log/audit/command_executions.log
-*/1 * * * *	root	cat /etc/passwd | cut -d ':' -f 1 > /var/log/manual/usernames.log
-*/1 * * * *	root	cat /etc/group > /var/log/manual/groups.log
-*/1 * * * *	root	ss -nlp | grep -E 'LISTEN.*(([0-9]+\.){3}[0-9]+|\*|):[0-9]+' | sed -e 's/ \ \ /\ /g' | grep -e 'pid=[0-9]*' > /var/log/manual/listening_processes.log
-*/1 * * * *	root	ps faxo user,uid,pid,ppid,tt,start,command > /var/log/processes.log
-*/1 * * * *	root	ss -tupan > /var/log/network_connections.log
+*/1 * * * *     root    /root/commands.sh
+*/1 * * * *     root    cat /etc/passwd | cut -d ':' -f 1 > /var/log/manual/usernames.log
+*/1 * * * *     root    cat /etc/group > /var/log/manual/groups.log
+*/1 * * * *     root    ss -nlp | grep -E 'LISTEN.*(([0-9]+\.){3}[0-9]+|\*|):[0-9]+' | sed -e 's/ \ \ /\ /g' | grep -e 'pid=[0-9]*' > /var/log/manual/listening_processes.log
+*/1 * * * *     root    ps aux > /var/log/manual/processes.log
+*/1 * * * *     root    ss -tupan > /var/log/manual/network_connections.log
+```
+### /root/commands.sh
+This gets all command executions from auditd and puts it into a log file
+```bash
+#!/bin/bash
+grep -E 'EXECVE' -B 1 -A 3 /var/log/audit/audit.log > /tmp/command_executions; sed -i -e 's/^type=SYSCALL/\nSyscall/' -e 's/^type=EXECVE/Command/' -e 's/^type=CWD/Current_directory/' -e 's/^type=PATH/Path/' /tmp/command_executions; awk '{match($0, /msg=audit\(([0-9]+)\.[0-9]+:[0-9]+\)/, a); $0=gensub(/msg=audit\([0-9]+\.[0-9]+:[0-9]+\)/, strftime("%H:%M:%S", a[1]), "g"); print}' /tmp/command_executions > /tmp/command_executions2; mv -f /tmp/command_executions2 /tmp/command_executions; sed -i -e 's/arch=.* success/success/' -e 's/exit=.* ppid/ppid/' -e 's/ comm=/ command=/' -e 's/ cwd=//' -e 's/inode.*ouid/ouid/' -e 's/ rdev=.*//' -e 's/argc=/arguments=/' /tmp/command_executions; mv -f /tmp/command_executions /var/log/audit/command_executions.log
 ```
