@@ -2,7 +2,7 @@
 title: Logging
 description: 
 published: true
-date: 2024-11-07T03:31:15.069Z
+date: 2024-11-07T03:42:50.736Z
 tags: 
 editor: markdown
 dateCreated: 2024-02-22T06:13:40.961Z
@@ -389,7 +389,7 @@ MAILTO=root
 # |  |  |  |  |
 # *  *  *  *  * user-name  command to be executed
 
-*/1 * * * *	root 	/bin/grep -E 'EXECVE' -B 1 -A 3 /var/log/audit/audit.log > /var/log/audit/command_executions; sed -i -e 's/^type=SYSCALL/\nSyscall/' -e 's/^type=EXECVE/Command/' -e 's/^type=CWD/Current_directory/' -e 's/^type=PATH/Path/' /var/log/audit/command_executions; awk '{match($0, /msg=audit\(([0-9]+)\.[0-9]+:[0-9]+\)/, a); $0=gensub(/msg=audit\([0-9]+\.[0-9]+:[0-9]+\)/, strftime("%H:%M:%S", a[1]), "g"); print}' /var/log/audit/command_executions > /var/log/audit/command_executions2; mv /var/log/audit/command_executions2 /var/log/audit/command_executions; sed -i -e 's/arch=.* success/success/' -e 's/exit=.* ppid/ppid/' -e 's/ comm=/ command=/' -e 's/ cwd=//' -e 's/inode.*ouid/ouid/' -e 's/ rdev=.*//' -e 's/argc=/arguments=/' /var/log/audit/command_executions
+*/1 * * * *	root 	grep -E 'EXECVE' -B 1 -A 3 /var/log/audit/audit.log > /tmp/command_executions; sed -i -e 's/^type=SYSCALL/\nSyscall/' -e 's/^type=EXECVE/Command/' -e 's/^type=CWD/Current_directory/' -e 's/^type=PATH/Path/' /tmp/command_executions; awk '{match($0, /msg=audit\(([0-9]+)\.[0-9]+:[0-9]+\)/, a); $0=gensub(/msg=audit\([0-9]+\.[0-9]+:[0-9]+\)/, strftime("%H:%M:%S", a[1]), "g"); print}' /tmp/command_executions > /tmp/command_executions2; mv -f /tmp/command_executions2 /tmp/command_executions; sed -i -e 's/arch=.* success/success/' -e 's/exit=.* ppid/ppid/' -e 's/ comm=/ command=/' -e 's/ cwd=//' -e 's/inode.*ouid/ouid/' -e 's/ rdev=.*//' -e 's/argc=/arguments=/' /tmp/command_executions; mv -f /tmp/command_executions /var/log/audit/command_executions.log
 */1 * * * *	root	cat /etc/passwd | cut -d ':' -f 1 > /var/log/manual/usernames.log
 */1 * * * *	root	cat /etc/group > /var/log/manual/groups.log
 */1 * * * *	root	ss -nlp | grep -E 'LISTEN.*(([0-9]+\.){3}[0-9]+|\*|):[0-9]+' | sed -e 's/ \ \ /\ /g' | grep -e 'pid=[0-9]*' > /var/log/manual/listening_processes.log
