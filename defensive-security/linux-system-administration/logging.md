@@ -2,7 +2,7 @@
 title: Logging
 description: 
 published: true
-date: 2024-11-07T20:50:48.928Z
+date: 2024-11-08T23:06:14.597Z
 tags: 
 editor: markdown
 dateCreated: 2024-02-22T06:13:40.961Z
@@ -255,13 +255,14 @@ This is my magnum opus for logging:
 index=* sourcetype="auditd" type="EXECVE" a0!="ps" a0!="sh" a0!="/bin/bash" a0!="/bin/sh" a0!="pgrep" a0!="grep" a0!="cut" a0!="ss"
 | eval foo=""
 | eval a2 = coalesce(a2,foo)
+| eval a4 = coalesce(a4,foo)
 | eval a2 = urldecode(replace(a2,"([0-9A-F]{2})","%\1"))
 | fields - argc
-| search a2!="ps*" a2!="pgrep*" a2!="grep*" a2!="cut*"
+| search a2!="ps*" a2!="pgrep*" a2!="grep*" a2!="cut*" a4!="/run/containerd/io.containerd.runtime*"
 | foreach a*
     [| eval cmdline=if(isnull(cmdline),'<<FIELD>>',if(isnull(<<FIELD>>),cmdline,cmdline + " " + '<<FIELD>>')) ]
-| search cmdline!="*command_execution*" cmdline!="sed -e s/ \\ \\ /\\ /g" cmdline!="runc init " cmdline!="cat /etc/group " cmdline!="cat /etc/passwd " cmdline!="/opt/gitlab/embedded/bin/curl --fail --max-time 10 --insecure https://localhost:443/help"
-| table _time,cmdline
+| search cmdline!="*command_execution*" cmdline!="sed -e s/ \\ \\ /\\ /g " cmdline!="cat /etc/group  " cmdline!="cat /etc/passwd  " cmdline!="/opt/gitlab/embedded/bin/curl --fail --max-time 10 --insecure https://localhost:443/help" cmdline!="runc init  " cmdline!="/lib/systemd/systemd-user-runtime-dir stop  " cmdline!="sleep 600  " cmdline!="/usr/bin/env dir=/var/opt/gitlab/logrotate pre_sleep=`0 post_sleep=3000 /opt/gitlab/embedded/bin/gitlab-logrotate-wrapper" cmdline!="/opt/gitlab/embedded/bin/chpst -P /usr/bin/env dir=/var/opt/gitlab/logrotate pre_sleep=600 post_sleep=3000 /opt/gitlab/embedded/bin/gitlab-logrotate-wrapper"
+| table host,_time,cmdline
 ```
 ### Manual logs (from crontab)
 ```spl
