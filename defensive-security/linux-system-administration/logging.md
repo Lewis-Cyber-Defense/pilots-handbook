@@ -2,7 +2,7 @@
 title: Logging
 description: 
 published: true
-date: 2024-11-09T07:07:44.089Z
+date: 2024-11-09T07:13:22.285Z
 tags: 
 editor: markdown
 dateCreated: 2024-02-22T06:13:40.961Z
@@ -294,6 +294,9 @@ sudo apt-get update && sudo apt-get install ca-certificates curl && sudo install
 ## Linux inputs.conf
 Here's a config file that should work on the linux universal forwarders for simple data ingest
 ```ini
+[default]
+host = XXX_XXXX_10.0.xxx.xxx
+
 [monitor:///var/log]
 
 [monitor:///var/log/audit]
@@ -388,6 +391,9 @@ delayInMills = 100
 
 ## Windows inputs.conf
 ```
+[default]
+host = XXX_XXXX_10.0.xxx.xxx
+
 # Use file system change monitor:
 
 [fschange:/etc/]
