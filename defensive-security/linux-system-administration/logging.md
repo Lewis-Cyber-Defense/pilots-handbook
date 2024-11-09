@@ -2,7 +2,7 @@
 title: Logging
 description: 
 published: true
-date: 2024-11-09T07:00:41.973Z
+date: 2024-11-09T07:07:44.089Z
 tags: 
 editor: markdown
 dateCreated: 2024-02-22T06:13:40.961Z
@@ -845,6 +845,13 @@ defaultGroup = default-autolb-group
 server = 10.0.23.143:9997
 
 [tcpout-server://10.0.23.143:9997]
+```
+
+## server.conf
+Make sure to set the hostname:
+```ini
+[general]
+serverName = CNC_WinServ2016_10.0.23.141
 ```
 
 ## /etc/crontab
