@@ -2,7 +2,7 @@
 title: Palo Alto Firewall
 description: 
 published: true
-date: 2025-01-30T20:13:24.711Z
+date: 2025-01-30T20:30:47.244Z
 tags: 
 editor: markdown
 dateCreated: 2024-02-22T06:12:33.415Z
@@ -114,6 +114,30 @@ In operations mode:
 
 `scp export configuration to username@host:/home/secops from running-config.xml`
 
+
+## License Activation
+
+### Method 1: GUI
+
+Top Bar: Device > Under License Managemenet > Activate feature using authorization code
+
+Enter the code
+
+
+### Method 2: CLI
+
+If we have the License Code (untested): 
+`request license activate code`
+
+## TODO LIST
+
+1. How to enable / disable GUI
+2. How to install malware signatures
+3. Write about deployment types 
+4. How to use GUI
+5. Better practices 
+6. What to do if we lose control 
+7. How to actually import the snapshot .xml. 
 
 
 
