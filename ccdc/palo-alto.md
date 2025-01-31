@@ -2,7 +2,7 @@
 title: Palo Alto Firewall
 description: 
 published: true
-date: 2025-01-30T20:30:47.244Z
+date: 2025-01-31T19:22:09.892Z
 tags: 
 editor: markdown
 dateCreated: 2024-02-22T06:12:33.415Z
@@ -19,9 +19,10 @@ dateCreated: 2024-02-22T06:12:33.415Z
 - User: admin
 - Pass: admin
 
-## Temporarily Turn Off Management Interface 
-
-You don't know who is accessing it. 
+### Things to Note
+Configuration mode is denoted with the `#` symbol before the command. 
+To exit config mode, type in `exit`.
+## Toggle the Management Interface (GUI)
 
 Sets the Firewall to config mode
 `configure` 
@@ -39,7 +40,7 @@ in config mode:
 `commit`
 
 ## Temporarily Turn Off Data External Interface (if connected)
-Red Team Could Be Managing the FW Via Data Interface
+Red Team Could Be Managing the Firewall Via Data Interface
 
 In configure mode: 
 `set network interface ethernet ethernet1/x link-state
@@ -125,9 +126,33 @@ Enter the code
 
 
 ### Method 2: CLI
-
 If we have the License Code (untested): 
 `request license activate code`
+
+## Update Malware Signatures
+Top Bar: Device > Dynamic Updates > check now
+
+Click around, and download stuff
+
+## Custom Security Profiles
+
+### Anti-Virus
+
+**ACTION TAB**
+- For North-South traffic, set actions to "drop"
+
+- For East-West, set actions to "reset-both"
+
+**WILDFIRE INLINE ML TAB**
+- Enable Inline Machine Learning
+
+### Anti-Spyware
+
+- For North-South traffic, set actions to drop:tical and hirything else 
+
+
+
+
 
 ## TODO LIST
 
