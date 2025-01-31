@@ -2,7 +2,7 @@
 title: Palo Alto Firewall
 description: 
 published: true
-date: 2025-01-31T20:00:59.884Z
+date: 2025-01-31T20:59:24.689Z
 tags: 
 editor: markdown
 dateCreated: 2024-02-22T06:12:33.415Z
@@ -22,6 +22,7 @@ dateCreated: 2024-02-22T06:12:33.415Z
 ### Things to Note
 Configuration mode is denoted with the `#` symbol before the command. 
 To exit config mode, type in `exit`.
+
 ## Toggle the Management Interface (GUI)
 
 Sets the Firewall to config mode
@@ -134,7 +135,7 @@ Top Bar: Device > Dynamic Updates > check now
 
 Click around, and download stuff
 
-## Custom Security Profiles
+## Custom Security Profiles (For Layer2 Network Deployment)
 
 ### Anti-Virus
 
@@ -216,6 +217,50 @@ Set an alert for all uploads and downloads
 ### Wildfire Analysis
 
 Just use the default unless suggestd otherwise :)
+
+## Custom Security Groups
+
+Top Bar: Objects > Security Profile Group 
+
+The Security Profiles you made go INSIDE the Security Groups that are about to be made.
+
+There are 2 to be made:
+
+**North-South SG**
+
+Assign the security profiles with the Action: "drop" to this group.
+
+After you do this, assign the North-South SG to your North-South Allow Security Policies (Which I believe you do in top bar: Policies)
+
+**East-West SG**
+
+Assign the security profiles with the Action: "Reset-both" to this group.
+
+After you do this, assign the "East-West SG" to your East-West Allow Security Policies
+
+## Turning on Decryption
+
+### Create a Trust Certificate
+Top Bar: Device > Certificate Management > Certificates
+
+Cert Type: Local
+CertName: Forward-Trust (Or whatever you want)
+Common Name: (If we're doing a Layer2 Network Deployment, use an IP address available in the subnet)
+Signed By: (Checkmark Certificate Authority)
+
+In certificate information: 
+
+- Checkmark "Certificate Authority" and "Forward Trust Certificate"
+
+### Create an Untrust Certificate 
+Top Bar: Device > Certificate Management > Certificates
+
+
+
+
+
+
+
 
 
 
