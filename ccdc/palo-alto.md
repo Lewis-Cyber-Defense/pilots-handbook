@@ -2,7 +2,7 @@
 title: Palo Alto Firewall
 description: 
 published: true
-date: 2025-01-31T19:22:09.892Z
+date: 2025-01-31T20:00:59.884Z
 tags: 
 editor: markdown
 dateCreated: 2024-02-22T06:12:33.415Z
@@ -148,7 +148,81 @@ Click around, and download stuff
 
 ### Anti-Spyware
 
-- For North-South traffic, set actions to drop:tical and hirything else 
+**SIGNATURE POLICIES TAB**
+North-South traffic: 
+
+- For critical and high severities, do Action:"drop".
+- For Severity: "any", do Action: "alert". 
+
+East-West traffic: 
+- Severity: "critical" and "high", do Action: "reset-both"
+- For severity: "any", do Action: "alert". 
+
+**DNS POLICIES TAB**
+
+Set DNS Security policy to "sinkhole". This will allow you to capture intell on the red team
+
+2 Methods:
+1. Set up your own sinkhole server
+
+2. Use the loopback address as the sinkhole
+
+### Vulnerability Protection
+North-South traffic: 
+- For critical and high severities, do Action:"drop".
+- For Severity: "any", do Action: "alert". 
+
+East-West traffic: 
+- Severity: "critical" and "high", do Action: "reset-both"
+- For severity: "any", do Action: "alert". 
+
+
+### URL Filtering
+
+**Categories Tab**
+
+At the MINIMUM (list should probably be elaborated):
+
+Block the categories:
+- command and control
+- grayware 
+- hacking
+- malware 
+- newly registered websites
+- proxy avoidance and anonymizers
+- ransomware 
+
+Set everything else to alert
+
+**Inline ML Tab**
+
+Set everything to block 
+
+
+### File Blocking
+
+Block downloading and uploading of dangerous files.
+
+**Note: NOT a comprehensive list.** 
+
+File types to block:
+- apk
+- asp
+- aspx
+- bat
+
+Set an alert for all uploads and downloads 
+
+### Wildfire Analysis
+
+Just use the default unless suggestd otherwise :)
+
+
+
+
+
+
+
 
 
 
@@ -163,6 +237,7 @@ Click around, and download stuff
 5. Better practices 
 6. What to do if we lose control 
 7. How to actually import the snapshot .xml. 
+8. Add info about turning on decryption 
 
 
 
