@@ -2,7 +2,7 @@
 title: Palo Alto Firewall
 description: 
 published: true
-date: 2025-02-11T14:47:13.259Z
+date: 2025-02-11T14:52:02.342Z
 tags: 
 editor: markdown
 dateCreated: 2024-02-22T06:12:33.415Z
@@ -67,10 +67,10 @@ Configurations can be rolledback, saved, loaded, exported, and imported as neede
 #### Via CLI
 
 To see the full running configuration:
-`show configuration`
+`show`
 
 To view a specific section, such as network settings:
-`show configuration | match <keyword>`
+`show | match <keyword>`
 
 If you want to see pending changes before committing:
 `show config diff`
