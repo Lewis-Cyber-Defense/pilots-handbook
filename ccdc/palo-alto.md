@@ -2,7 +2,7 @@
 title: Palo Alto Firewall
 description: 
 published: true
-date: 2025-02-11T14:11:23.477Z
+date: 2025-02-11T14:13:01.448Z
 tags: 
 editor: markdown
 dateCreated: 2024-02-22T06:12:33.415Z
@@ -27,7 +27,8 @@ To exit config mode, type in `exit`.
 **IMPORTANT** All changes must be committed. 
 `commit`
 
-## Manage the Management Interface (GUI)
+## Manage the Management Interface 
+### Management Interface (GUI)
 
 Navigate to **Device > Setup > Interfaces**
 
@@ -35,7 +36,7 @@ Configure the **management interface** including permitted services and ip addre
 Add permitted ips on the right panel
 ![pasted_image_20250210204238.png](/pasted_image_20250210204238.png)
 
-
+.
 ### Management Interface (CLI)
 
 Set permitted ips
