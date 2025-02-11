@@ -2,7 +2,7 @@
 title: Palo Alto Firewall
 description: 
 published: true
-date: 2025-01-31T20:59:24.689Z
+date: 2025-02-11T14:11:23.477Z
 tags: 
 editor: markdown
 dateCreated: 2024-02-22T06:12:33.415Z
@@ -20,14 +20,30 @@ dateCreated: 2024-02-22T06:12:33.415Z
 - Pass: admin
 
 ### Things to Note
+Configurations must be made in *Configuration* mode, which is activated with `configure`
 Configuration mode is denoted with the `#` symbol before the command. 
 To exit config mode, type in `exit`.
 
-## Toggle the Management Interface (GUI)
+**IMPORTANT** All changes must be committed. 
+`commit`
 
-Sets the Firewall to config mode
-`configure` 
+## Manage the Management Interface (GUI)
 
+Navigate to **Device > Setup > Interfaces**
+
+Configure the **management interface** including permitted services and ip address on the left panel
+Add permitted ips on the right panel
+![pasted_image_20250210204238.png](/pasted_image_20250210204238.png)
+
+
+### Management Interface (CLI)
+
+Set permitted ips
+```
+set device config system permitted-ip [IP ADDRESS]
+show deviceconfig system permitted-ip [IP ADDRESS]
+delete deviceconfig system permitted-ip [IP ADDRESS]
+```
 Set access to local only (I think)
 `set deviceconfig system permitted-ip 127.0.0.1`
 
