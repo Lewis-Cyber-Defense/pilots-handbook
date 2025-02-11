@@ -2,7 +2,7 @@
 title: Palo Alto Firewall
 description: 
 published: true
-date: 2025-02-11T15:59:50.157Z
+date: 2025-02-11T16:04:22.225Z
 tags: 
 editor: markdown
 dateCreated: 2024-02-22T06:12:33.415Z
@@ -18,6 +18,8 @@ dateCreated: 2024-02-22T06:12:33.415Z
 
 - User: admin
 - Pass: admin
+
+[ManagingAdministrators](/ccdc/palo-alto/ManagingAdministrators)
 
 ### Things to Note
 Configurations must be made in *Configuration* mode, which is activated with `configure`
