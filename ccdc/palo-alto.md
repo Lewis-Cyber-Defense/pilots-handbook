@@ -2,7 +2,7 @@
 title: Palo Alto Firewall
 description: 
 published: true
-date: 2025-02-11T16:04:22.225Z
+date: 2025-02-11T16:04:33.480Z
 tags: 
 editor: markdown
 dateCreated: 2024-02-22T06:12:33.415Z
