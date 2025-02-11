@@ -2,7 +2,7 @@
 title: Managing Administrators
 description: 
 published: true
-date: 2025-02-11T16:02:43.561Z
+date: 2025-02-11T16:05:52.999Z
 tags: 
 editor: markdown
 dateCreated: 2025-02-11T16:02:43.561Z
@@ -16,7 +16,7 @@ Navigate to **Device > Authentication Profile**
 
 Server profiles (**Device > Server Profiles**) can be created for relevant authentication methods such as LDAP or Kerberos to be implemented into authentication profiles
 ## Adding Users
-Users can then be added to the Local User Database
+(If using Local-Database as authentication method) Users can then be added to the Local User Database
 Navigate to **Device > Local User Database > Users**
 
 Administrators can be added to **Device > Administrators**
