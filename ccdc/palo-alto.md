@@ -2,7 +2,7 @@
 title: Palo Alto Firewall
 description: 
 published: true
-date: 2025-02-11T14:13:01.448Z
+date: 2025-02-11T14:47:13.259Z
 tags: 
 editor: markdown
 dateCreated: 2024-02-22T06:12:33.415Z
@@ -56,6 +56,53 @@ in config mode:
 `set deviceconfig system permitted-ip x.x.x.x`
 
 `commit`
+
+## Managing Configurations
+#### Via GUI
+Navigate to **Device > Setup > Operations**
+![pasted_image_20250211083311.png](/pasted_image_20250211083311.png)
+Configurations can be rolledback, saved, loaded, exported, and imported as needed via .xml conifg files.
+
+
+#### Via CLI
+
+To see the full running configuration:
+`show configuration`
+
+To view a specific section, such as network settings:
+`show configuration | match <keyword>`
+
+If you want to see pending changes before committing:
+`show config diff`
+
+Save Configuration to a Named Snapshot
+`save config to <filename.xml>`
+	Example:
+	`save config to backup-jan.xml`
+
+Load a Saved Configuration
+`load config from <filename.xml>`
+
+Revert to Last Saved Configuration (Before Last Commit)
+`revert config`
+
+Export Running Configuration (via SCP or TFTP)
+`scp export configuration from running-config.xml to <user>@<server>:/path/`
+	Example:
+	`scp export configuration from running-config.xml to admin@192.168.1.10:/home/admin/`
+
+Import Configuration
+`scp import configuration from <user>@<server>:/path/<filename.xml>`
+
+Then, load and commit:
+`load config from <filename.xml> commit`
+
+View Configuration Versions
+`show config audit summary`
+
+Rollback to a Previous Version
+`rollback to version <X> commit`
+
 
 ## Temporarily Turn Off Data External Interface (if connected)
 Red Team Could Be Managing the Firewall Via Data Interface
