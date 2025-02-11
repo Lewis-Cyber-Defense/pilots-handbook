@@ -2,7 +2,7 @@
 title: Palo Alto Firewall
 description: 
 published: true
-date: 2025-02-11T14:52:02.342Z
+date: 2025-02-11T15:45:11.078Z
 tags: 
 editor: markdown
 dateCreated: 2024-02-22T06:12:33.415Z
@@ -271,10 +271,10 @@ Block downloading and uploading of dangerous files.
 **Note: NOT a comprehensive list.** 
 
 File types to block:
-- apk
 - asp
 - aspx
 - bat
+- ps1
 
 Set an alert for all uploads and downloads 
 
