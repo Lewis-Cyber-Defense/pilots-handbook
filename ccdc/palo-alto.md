@@ -2,7 +2,7 @@
 title: Palo Alto Firewall
 description: 
 published: true
-date: 2025-02-11T15:45:11.078Z
+date: 2025-02-11T15:59:50.157Z
 tags: 
 editor: markdown
 dateCreated: 2024-02-22T06:12:33.415Z
@@ -151,26 +151,6 @@ To disable a specific service:
 
 `commit`
 
-## Admin accounts
-
-Note: admin and panorama are default users 
-
-**Change admin password**
-
-In config mode:
-`set mgt-confg users admin password`
-
-**Check for additional admin accounts**
-
-`show admins all`
-
-**Delete admin accounts**
-
-config mode:
-
-`delete mgt-config users [SUS ACCOUNT NAME HERE]`
-
-`commit`
 
 ## Creating Snapshots
 
