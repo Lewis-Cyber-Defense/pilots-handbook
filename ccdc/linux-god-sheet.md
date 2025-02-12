@@ -2,7 +2,7 @@
 title: Kyle's "Linux God Sheet"
 description: Made for CCDC, but widely applicable. Content from here is scattered throughout this wiki.
 published: true
-date: 2024-10-16T23:04:54.741Z
+date: 2025-02-12T19:22:12.431Z
 tags: 
 editor: markdown
 dateCreated: 2024-10-16T23:04:54.741Z
@@ -26,34 +26,44 @@ lsb_release -a
 	- 3.17.4-301.fc21
 ## OS Hardening 
 
-#### CHANGE SYSADMIN OR WHATEVER'S PASSWORD!
+### Change or LOCK any non-scoring account passwords
 ```
-sudo passwd 
+sudo /usr/bin/passwd
 ```
-#### Software Patching
+> The default `passwd` binary may have been altered to intercept passwords. It is better to explicitly use the `/usr/bin/passwd` binary, or if possible, download binaries from [BusyBox](https://busybox.net/about.html).
+{.is-warning}
 
-Ubuntu
+#### Using the BusyBox passwd binary
+```sh
+wget https://busybox.net/downloads/binaries/1.35.0-x86_64-linux-musl/busybox_PASSWD
+chmod +x ./busybox_PASSWD
+sudo ./busybox_PASSWD [regular passwd arguments]
+```
+
+### Software Patching
+
+#### Ubuntu
 ```
 sudo apt-get update
 sudo apt-get upgrade
 ```
 
-CentOS [Quick Hardening](https://highon.coffee/blog/security-harden-centos-7/#auditd---audit-daemon)
+#### CentOS [Quick Hardening](https://highon.coffee/blog/security-harden-centos-7/#auditd---audit-daemon)
 ```
 sudo yum check-update
 sudo yum update
 ```
 
-Fedora
+#### Fedora
 ```
 sudo yum update
 sudo yum upgrade
 sudo yum --security update
 ```
 
-#### Implement Auditd
+### Implement Auditd
 - Follow the auditd doc [here](https://drive.google.com/file/d/1fPzdUayu1mhvMvkypxrburAkM8xK3ED4/view?usp=drive_link)
-#### Secure User Accounts
+### Secure User Accounts
 1.) Check what Accounts have UID 0 (should be root)
 - Lists every account in /etc/passwd that has a UID of 0
 ```
@@ -68,7 +78,7 @@ sudo cat /etc/shadow | awk -F: '($2==""){print $1}'
 ```
 sudo passwd -l accountName
 ```
-#### Securing SSH
+### Securing SSH
 - Config Loc: `/etc/ssh/sshd_config`
 1.) Disable Root Login (whatever it is --> no)
 ```
@@ -86,7 +96,7 @@ PermitEmptyPasswords no
 ```
 service ssh restart
 ```
-#### Remove/Disable Unnecessary Services
+### Remove/Disable Unnecessary Services
 - List all services
 ```
 systemctl list-units --type=service
@@ -108,7 +118,7 @@ sudo systemctl <is-active/is-enabled> <service>
 sudo systemctl show <service>
 ```
 - Disable Services highlighted in red [here](https://docs.google.com/document/d/1A-MfD2_vfkRYokSO5w78uJjcB1ouHiaJ8sx1dRQV2mo/edit?usp=sharing)
-#### System Firewall Setup
+### System Firewall Setup
 - Ubuntu 18/CentOS
 	- HTTP: 80 TCP
 	- HTTPS: 443 TCP
@@ -286,11 +296,11 @@ awk '($(NF-1) = /Unban/){print "Date: "$1, "Time: "$2, "Offender: "$NF}' /var/lo
 ```
 ## Application Security
 
-#### Securing Apache2 
-Guides
+### Securing Apache2 
+#### Guides
 - [Installation](https://ubuntu.com/tutorials/install-and-configure-apache#1-overview)
 - [How to Harden Your Apache Web Server on an Ubuntu 18.04](https://hostadvice.com/how-to/web-hosting/ubuntu/how-to-harden-your-apache-web-server-on-ubuntu-18-04/)
-Make Backups 
+#### Make Backups 
 - Apache2 Config
 ```
 sudo cp /etc/apache2/apache2.conf /etc/apache2/apache2.conf.backup
@@ -322,7 +332,7 @@ Listen 0.0.0.0:80
 	Listen 0.0.0.0:443
 <...>
 ```
-Hide Apache Version & Ubuntu OS (Even though they probably already know)
+#### Hide Apache Version & Ubuntu OS (Even though they probably already know)
 - In /etc/apache2/conf-enabled/security.conf, change the following settings:
 ```
 ServerSignature Off
@@ -332,7 +342,7 @@ ServerTokens Prod
 ```
 sudo systemctl reload apache2
 ```
-Disable Directory Listing and FollowSymLinks
+#### Disable Directory Listing and FollowSymLinks
 -  In /etc/apache2/apache2.conf change "Options Indexes FollowSymLinks" to "Options -Indexes -FollowSymLinks" so that it looks like this:
 ```
 <Directory /var/www/>
@@ -342,7 +352,7 @@ Disable Directory Listing and FollowSymLinks
 </Directory>
 ```
 - Reload
-Install mod_security and mod_evasive
+#### Install mod_security and mod_evasive
 - Mod Security (Firewall against Brute force protections)
 ```
 sudo apt install libapache2-mod-security2 -y && sudo systemctl restart apache2
@@ -351,7 +361,7 @@ sudo apt install libapache2-mod-security2 -y && sudo systemctl restart apache2
 ```
 sudo apt install libapache2-mod-evasive -y && sudo systemctl restart apache2
 ```
-Limit HTTP Size (If needed)
+#### Limit HTTP Size (If needed)
 - Change in /etc/apache2/apache2.conf
 - Basically makes the upload cap for 10 mb
 ```
@@ -361,7 +371,7 @@ LimitRequestBody 10485760
  
 </Directory>
 ```
-Disable TRACE HTTP Request
+#### Disable TRACE HTTP Request
 - Disallows Cross Site Tracing to make it harder to steal cookie info
 - In /etc/apache2/apache2.conf, add "TraceEnable off"
 ```
@@ -370,7 +380,7 @@ TraceEnable off
 ```
 - Reload
 
-#### Securing SMTP
+### Securing SMTP
 - Dovecat --> POP & IMAP (Defaults already good enough)
 	- Config Loc: `/etc/dovecot/dovecot.conf`
 - MTA: --> Postfix
