@@ -2,7 +2,7 @@
 title: Hardening
 description: 
 published: true
-date: 2024-02-26T05:43:59.479Z
+date: 2025-02-12T16:47:50.881Z
 tags: 
 editor: markdown
 dateCreated: 2024-02-22T06:11:58.378Z
@@ -91,6 +91,8 @@ IPTABLES=/sbin/iptables
 # Remove previous firewall rules (run all commands in order)
 $IPTABLES -F
 $IPTABLES -F -t nat
+$IPTABLES -F -t filter
+$IPTABLES -F -t mangle
 $IPTABLES -X
 $IPTABLES -P INPUT DROP
 $IPTABLES -P OUTPUT DROP
