@@ -2,7 +2,7 @@
 title: Logging
 description: 
 published: true
-date: 2025-02-13T01:02:18.170Z
+date: 2025-02-13T01:06:39.820Z
 tags: 
 editor: markdown
 dateCreated: 2024-02-22T06:13:40.961Z
