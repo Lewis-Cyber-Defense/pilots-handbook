@@ -2,7 +2,7 @@
 title: Logging
 description: 
 published: true
-date: 2025-02-13T01:00:41.670Z
+date: 2025-02-13T01:02:18.170Z
 tags: 
 editor: markdown
 dateCreated: 2024-02-22T06:13:40.961Z
@@ -331,14 +331,16 @@ sudo $SPLUNK_HOME/bin/splunk start --accept-license
 
 ### edit or create inputs config file 
 location of inputs (and outputs) file: 
-$SPLUNK_HOME/etc/system/local/inputs.conf)
+**$SPLUNK_HOME/etc/system/local/inputs.conf)**
+
+(input file example further below)
 
 
 
 ### Connect to Receiving Indexer 
 ### Examples:
 SPLUNK_HOME/bin/splunk add forward-server idx1.mycompany.com:9997
-SPLUNK_HOME/bin/splunk add forward-server [host name or ip address]:[listening port]
+SPLUNK_HOME/bin/splunk add forward-server [HOSTNAME OR IP ADDRESS]:[LISTENING PORT]
   
 ## Linux inputs.conf
 Here's a config file that should work on the linux universal forwarders for simple data ingest
