@@ -2,7 +2,7 @@
 title: Logging
 description: 
 published: true
-date: 2024-11-09T07:13:22.285Z
+date: 2025-02-13T01:00:41.670Z
 tags: 
 editor: markdown
 dateCreated: 2024-02-22T06:13:40.961Z
@@ -290,7 +290,56 @@ sudo apt-get update && sudo apt-get install ca-certificates curl && sudo install
 ```bash
 sudo apt-get update && sudo apt-get install ca-certificates curl && sudo install -m 0755 -d /etc/apt/keyrings && sudo curl -fsSL https://download.docker.com/linux/ubuntu/gpg -o /etc/apt/keyrings/docker.asc && sudo chmod a+r /etc/apt/keyrings/docker.asc && echo "deb [arch=$(dpkg --print-architecture) signed-by=/etc/apt/keyrings/docker.asc] https://download.docker.com/linux/ubuntu $(. /etc/os-release && echo "$VERSION_CODENAME") stable" | sudo tee /etc/apt/sources.list.d/docker.list > /dev/null && sudo apt-get update && sudo apt-get install -y docker-ce docker-ce-cli containerd.io docker-buildx-plugin docker-compose-plugin && sudo docker run -d -v /:/ufhost/ --name uf1 --hostname uf1 -e "SPLUNK_PASSWORD=password" -e "SPLUNK_START_ARGS=--accept-license" -e "SPLUNK_STANDALONE_URL=192.168.69.137" -it splunk/universalforwarder:latest
 ```
+## Verbose Splunk Installation for Linux Systems
+Installing universal forwarder to send logs to Splunk server
+helpful youtube video:
+[https://www.youtube.com/watch?v=yl3gY3JEtmU](https://www.youtube.com/watch?v=yl3gY3JEtmU)
 
+### Add splunk user and group
+
+```bash
+useradd -m splunkfwd
+groupadd splunkfwd
+```
+
+### Install 
+```bash
+sudo su
+export SPLUNK_HOME="/opt/splunkforwarder"
+mkdir $SPLUNK_HOME./spl
+
+
+wget -O splunkforwarder-9.3.1-0b8d769cb912-Linux-x86_64.tgz "https://download.splunk.com/products/universalforwarder/releases/9.3.1/linux/splunkforwarder-9.3.1-0b8d769cb912-Linux-x86_64.tgz"
+
+tar xvzf splunkforwarder-9.3.1-0b8d769cb912-Linux-x86_64.tgz
+```
+
+copy contents of /splunkforwarder to /$SPLUNK_HOME once unzipped using tar
+
+
+
+### Change owner to the splunk user
+
+``` bash
+chown -R splunkfwd:splunkfwd $SPLUNK_HOME
+```
+
+### Start 
+```bash
+sudo $SPLUNK_HOME/bin/splunk start --accept-license
+```
+
+### edit or create inputs config file 
+location of inputs (and outputs) file: 
+$SPLUNK_HOME/etc/system/local/inputs.conf)
+
+
+
+### Connect to Receiving Indexer 
+### Examples:
+SPLUNK_HOME/bin/splunk add forward-server idx1.mycompany.com:9997
+SPLUNK_HOME/bin/splunk add forward-server [host name or ip address]:[listening port]
+  
 ## Linux inputs.conf
 Here's a config file that should work on the linux universal forwarders for simple data ingest
 ```ini
