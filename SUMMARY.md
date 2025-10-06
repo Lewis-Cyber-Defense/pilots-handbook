@@ -2,7 +2,7 @@
 title: Table of contents
 description: 
 published: true
-date: 2025-10-06T17:29:01.010Z
+date: 2025-10-06T17:30:05.206Z
 tags: 
 editor: markdown
 dateCreated: 2024-02-22T06:11:51.710Z
@@ -13,7 +13,7 @@ dateCreated: 2024-02-22T06:11:51.710Z
 * [Introduction](README.md)
 
 ## 🛡️ Defensive Security
-* [Defensive Tool List](defensive-security/defensive-tool-list)
+* [Defensive Tool List](defensive-security/defensive-tool-list.md)
 ### 🐧 Linux
 * [Linux System Administration Guide](defensive-security/linux-system-administration.md)
   * [Security checklist](defensive-security/linux-system-administration/security-checklist.md)
