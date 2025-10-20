@@ -2,7 +2,7 @@
 title: Hardening
 description: 
 published: true
-date: 2024-02-24T05:16:30.337Z
+date: 2025-10-20T18:18:01.848Z
 tags: 
 editor: markdown
 dateCreated: 2024-02-22T06:13:53.944Z
@@ -84,3 +84,6 @@ Install-Module -Name PSDesiredStateConfiguration
 - Account Policies (Password, Account Lockout, Kerberos)
 	- `Windows Settings > Security Settings > Account Policies
 		- Password and Lockout seem most important
+
+> To force group policy refresh, run `gpupdate /force` on domain clients
+{.is-info}
