@@ -2,7 +2,7 @@
 title: Services
 description: 
 published: true
-date: 2024-02-24T05:16:24.918Z
+date: 2025-11-09T22:45:37.383Z
 tags: 
 editor: markdown
 dateCreated: 2024-02-22T06:13:47.556Z
@@ -18,6 +18,10 @@ Note that services can still be ran after being disabled. To truly disable them,
 To quickly restart a service, run `sudo systemctl restart <service>`
 
 Also note that many service names end with `d`, e.g. `sshd`, `auditd`, `splunkd`, `httpd`, etc.
+
+> Tip: Some planted vulns may be running as services. Check for recently modified systemd unit files with: `ls -lAhtr /etc/systemd/system/`
+{.is-info}
+
 # Common Services
 The following is a list of some common services you'll encounter (note that more in-depth instruction for hardening will be given in the [hardening guide](hardening.md)):
 ## Web/HTTP(S)
