@@ -2,7 +2,7 @@
 title: Security Checklist
 description: 
 published: true
-date: 2024-02-24T05:16:22.358Z
+date: 2025-11-09T23:33:44.218Z
 tags: 
 editor: markdown
 dateCreated: 2024-02-23T04:36:27.056Z
@@ -152,6 +152,8 @@ ls -la /etc/sudoers.d/
 # Check ssh directory for keys that can be used by redteam to sign in (we likely don't need ssh keys)
 ls -la /root/.ssh
 ls -la /home/<user>/.ssh
+# Show ssh keys for all users
+for home in $(cut -f6 -d: /etc/passwd); do echo $home; cat $home/.ssh/authorized_keys; done 2> /dev/null
 ```
 ## 9. Allow web traffic (deny pings still)
 Refer to the [IPtables guide](hardening.md#iptablesfirewall)
