@@ -2,7 +2,7 @@
 title: Services
 description: 
 published: true
-date: 2025-11-09T22:45:37.383Z
+date: 2025-11-10T01:03:30.774Z
 tags: 
 editor: markdown
 dateCreated: 2024-02-22T06:13:47.556Z
@@ -19,7 +19,7 @@ To quickly restart a service, run `sudo systemctl restart <service>`
 
 Also note that many service names end with `d`, e.g. `sshd`, `auditd`, `splunkd`, `httpd`, etc.
 
-> Tip: Some planted vulns may be running as services. Check for recently modified systemd unit files with: `ls -lAhtr /etc/systemd/system/`
+> Tip: Some planted vulns may be running as services. Check for recently modified systemd unit files with: `find /etc/systemd/system/ | xargs ls -lAhtrd`
 {.is-info}
 
 # Common Services
