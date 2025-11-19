@@ -2,7 +2,7 @@
 title: Logging
 description: 
 published: true
-date: 2025-02-14T01:25:17.804Z
+date: 2025-11-19T07:43:14.128Z
 tags: 
 editor: markdown
 dateCreated: 2024-02-22T06:13:40.961Z
@@ -295,6 +295,12 @@ Installing universal forwarder to send logs to Splunk server
 helpful youtube video:
 [https://www.youtube.com/watch?v=yl3gY3JEtmU](https://www.youtube.com/watch?v=yl3gY3JEtmU)
 
+### Find latest download links
+- Enterprise server: `curl -sSlL https://www.splunk.com/en_us/download/splunk-enterprise.html | grep -oP '(?<=data-link=")[^"]+'`
+- Universal forwarder: `curl -sSlL https://www.splunk.com/en_us/download/universal-forwarder.html | grep -oP '(?<=data-link=")[^"]+'`
+
+(Snippets taken from [this blog](https://olivontech.com/en/posts/splunk/download-splunk-without-login/))
+
 ### Add splunk user and group
 
 ```bash
@@ -304,14 +310,14 @@ groupadd splunkfwd
 
 ### Install 
 ```bash
-sudo su
+sudo -s
 export SPLUNK_HOME="/opt/splunkforwarder"
 mkdir $SPLUNK_HOME./spl
 
 
-wget -O splunkforwarder-9.3.1-0b8d769cb912-Linux-x86_64.tgz "https://download.splunk.com/products/universalforwarder/releases/9.3.1/linux/splunkforwarder-9.3.1-0b8d769cb912-Linux-x86_64.tgz"
+wget -O splunkforwarder.tgz "<download url>"
 
-tar xvzf splunkforwarder-9.3.1-0b8d769cb912-Linux-x86_64.tgz
+tar xvzf splunkforwarder.tgz
 ```
 
 copy contents of /splunkforwarder to /$SPLUNK_HOME once unzipped using tar
@@ -346,7 +352,7 @@ SPLUNK_HOME/bin/splunk add forward-server [HOSTNAME OR IP ADDRESS]:[LISTENING PO
 Here's a config file that should work on the linux universal forwarders for simple data ingest
 ```ini
 [default]
-host = XXX_XXXX_10.0.xxx.xxx
+host = <change me>
 
 [monitor:///var/log]
 
@@ -441,9 +447,9 @@ delayInMills = 100
 ```
 
 ## Windows inputs.conf
-```
+```ini
 [default]
-host = XXX_XXXX_10.0.xxx.xxx
+host = <change me>
 
 # Use file system change monitor:
 
@@ -458,27 +464,20 @@ index=main
 # events first, then older, and finally continuing to gather newly arriving events
 
 [WinEventLog://Security]
-    renderXml = true
-    disabled = false
-    evt_resolve_ad_obj = true
-    blacklist1 = EventCode="4662" Message="Object Type:\s+(?!groupPolicyContainer)"
-    blacklist2 = EventCode="566" Message="Object Type:\s+(?!groupPolicyContainer)"
-    blacklist3 = EventCode="4688" Message="New Process Name: (?i)(?:[C-F]:\Program Files\Splunk(?:UniversalForwarder)?\bin\(?:btool|splunkd|splunk|splunk-(?:MonitorNoHandle|admon|netmon|perfmon|powershell|regmon|winevtlog|winhostinfo|winprintmon|wmi)).exe)"
-    #index = 
+disabled = false
+evt_resolve_ad_obj = true
+blacklist1 = EventCode="4662" Message="Object Type:\s+(?!groupPolicyContainer)"
+blacklist2 = EventCode="566" Message="Object Type:\s+(?!groupPolicyContainer)"
+blacklist3 = EventCode="4688" Message="New Process Name: (?i)(?:[C-F]:\Program Files\Splunk(?:UniversalForwarder)?\bin\(?:btool|splunkd|splunk|splunk-(?:MonitorNoHandle|admon|netmon|perfmon|powershell|regmon|winevtlog|winhostinfo|winprintmon|wmi)).exe)"
 
 [WinEventLog://Application]
-    renderXml = true
-    disabled = false
-    #index = 
+disabled = false
 
 [WinEventLog://System]
-    renderXml = true
-    disabled = false
-    #index = 
+disabled = false
 
 [WinEventLog://Microsoft-Windows-Sysmon/Operational]
 disabled = false
-renderXml = true
 source = XmlWinEventLog:Microsoft-Windows-Sysmon/Operational
 
 [blacklist:$SPLUNK_HOME/etc/auth]
@@ -899,16 +898,16 @@ index = false
 defaultGroup = default-autolb-group
 
 [tcpout:default-autolb-group]
-server = 10.0.23.143:9997
+server = <change me>:9997
 
-[tcpout-server://10.0.23.143:9997]
+[tcpout-server://<change me>:9997]
 ```
 
 ## server.conf
 Make sure to set the hostname:
 ```ini
 [general]
-serverName = CNC_WinServ2016_10.0.23.141
+serverName = <change me>
 ```
 
 ## /etc/crontab
